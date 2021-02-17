@@ -1,8 +1,10 @@
 package com.example.howlong
 
+import android.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
+import android.widget.Toolbar
 import com.example.howlong.fragments.menu.MenuFragment
 
 class MenuActivity : AppCompatActivity() {

@@ -6,7 +6,7 @@
     <item>
         <bitmap
                 android:gravity="center"
-                android:src="@drawable/icon"
+                android:src="@drawable/img_spalsh"
                 android:tileMode="disabled" />
     </item>
 </layer-list>
