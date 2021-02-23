@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/menu_item_background"
+        android:clickable="true">
+    
+    <ImageView
+            android:id="@+id/menu_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/img_splash" />
+    
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#88FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+    
+    
+    <View
+            android:id="@+id/menu_line"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="16dp"
+            android:layout_marginLeft="12dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+    
+    
+    <com.example.howlong.widgets.RegularFontTextView
+            android:id="@+id/menu_title"
+            style="@style/MenuItemTextViewStyle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/menu_line"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Текст" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

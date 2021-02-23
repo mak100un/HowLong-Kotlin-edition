@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/img_spalsh"
+        android:icon="@drawable/img_splash"
         android:label="@string/app_name"
         android:supportsRtl="true">
         <activity

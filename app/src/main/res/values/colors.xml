@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimary">#4688B5</color>
     <color name="colorPrimaryDark">#2F2F2F</color>
     <color name="colorAccent">#4688B5</color>
     <color name="colorLight">#FFFFFF</color>
+    <color name="colorToolbarShadow">#88333333</color>
     <color name="colorActivatedHighlight">#4688B5</color>
+    <color name="colorSettings">#239A56</color>
+    <color name="colorHistory">#84BFEB</color>
+    <color name="colorActiveRecord">@android:color/black</color>
+    <color name="gray">#D3D3D3</color>
 </resources>

@@ -1,27 +1,85 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="windowActionModeOverlay">false</item>
+        <item name="windowActionModeOverlay">true</item>
         <item name="android:colorActivatedHighlight">@color/colorActivatedHighlight</item>
         <item name="textAllCaps">false</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:datePickerDialogTheme" tools:targetApi="lollipop">@style/AppCompatDialogStyle</item>
+        <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
+        <!-- This is the styling for action bar -->
+        <item name="actionBarStyle">@style/AppTheme.ActionBar</item>
+        <!--To change the text styling of options menu items</item>-->
+        <item name="android:itemTextAppearance">@style/AppTheme.MenuTextStyle</item>
+        <!--To change the background of options menu-->
+        <item name="android:itemBackground">@android:color/background_light</item>
     </style>
     
-    <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
-        <item name="colorAccent">@color/colorActivatedHighlight</item>
-    </style>
-
     <!-- Theme for splashActivity -->
     <style name="SplashTheme" parent ="android:Theme">
         <item name="android:windowBackground">@drawable/splash_background</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
         <item name="windowActionBar">false</item>
+    </style>
+    
+    <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorActivatedHighlight</item>
+    </style>
+    
+    <style name="AppTheme.ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="background">@android:color/black</item>
+        <item name="titleTextStyle">@style/AppTheme.ActionBarTitle</item>
+    </style>
+    
+    <style name="AppTheme.ActionBarTitle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    
+    <style name="AppTheme.MenuTextStyle">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    
+    <style name="AppTheme.CenterStyle">
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+    
+    <style name="TitleTextViewStyle" parent="AppTheme.CenterStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+    
+    <style name="MenuItemTextViewStyle" parent="TitleTextViewStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginLeft">12dp</item>
+    </style>
+    
+    <style name="SubTitleTextViewStyle" parent="TitleTextViewStyle">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    
+    <style name="DescriptionTextViewStyle" parent="SubTitleTextViewStyle">
+        <item name="android:textSize">18sp</item>
+    </style>
+    
+    <style name="ButtonStyle" parent="AppTheme.CenterStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/rounded_background</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:elevation">10dp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:paddingHorizontal" tools:targetApi="o">16dp</item>
+        <item name="android:paddingVertical" tools:targetApi="o">10dp</item>
     </style>
 
 </resources>
