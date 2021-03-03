@@ -3,7 +3,7 @@ package com.example.howlong.definition.items
 import com.example.howlong.R
 import com.example.howlong.definition.enums.MenuItemType
 
-class MenuItem(menuType: MenuItemType)
+class MenuItem(val menuType: MenuItemType)
 {
     val titleRes: Int
     val imageRes: Int

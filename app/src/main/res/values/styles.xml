@@ -1,6 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:windowEnableSplitTouch">false</item>
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -19,7 +21,7 @@
     </style>
     
     <!-- Theme for splashActivity -->
-    <style name="SplashTheme" parent ="android:Theme">
+    <style name="SplashTheme" parent="android:Theme">
         <item name="android:windowBackground">@drawable/splash_background</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">true</item>
@@ -45,6 +47,22 @@
     
     <style name="AppTheme.CenterStyle">
         <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+    
+    <style name="MatchParentTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    
+    <style name="HeightWrapContentTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    
+    <style name="LottieAnimationStyle" parent="AppTheme.CenterStyle">
+        <item name="android:layout_width">@dimen/lottie_width</item>
+        <item name="android:layout_height">@dimen/lottie_height</item>
+        <item name="android:layout_marginTop">@dimen/lottie_layout_marginTop</item>
     </style>
     
     <style name="TitleTextViewStyle" parent="AppTheme.CenterStyle">

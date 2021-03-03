@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/MatchParentTheme"
         android:orientation="vertical"
         tools:context=".MenuActivity">
     
@@ -10,13 +9,12 @@
             android:id="@+id/toolbar"
             layout="@layout/toolbar" />
     
-    <View android:layout_width="match_parent"
-            android:layout_height="6dp"
-            android:id="@+id/toolbar_shadow"
-            android:background="@drawable/toolbar_shadow"/>
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/primary_elevation"
+            android:background="@drawable/toolbar_shadow" />
     
     <FrameLayout
             android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            style="@style/MatchParentTheme" />
 </LinearLayout>

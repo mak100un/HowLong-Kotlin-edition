@@ -1,53 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@drawable/menu_item_background"
-        android:clickable="true">
+        style="@style/HeightWrapContentTheme">
     
-    <ImageView
-            android:id="@+id/menu_image"
+    <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/img_splash" />
-    
-    <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#88FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-    
-    
-    <View
-            android:id="@+id/menu_line"
-            android:layout_width="5dp"
-            android:layout_height="match_parent"
-            android:layout_marginVertical="16dp"
-            android:layout_marginLeft="12dp"
-            android:background="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-    
-    
-    <com.example.howlong.widgets.RegularFontTextView
-            android:id="@+id/menu_title"
-            style="@style/MenuItemTextViewStyle"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="@id/menu_line"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Текст" />
+            android:layout_height="@dimen/menu_item_height"
+            android:layout_marginHorizontal="@dimen/menu_item_horizontal_margin"
+            android:layout_marginVertical="@dimen/vertical_margin"
+            app:cardCornerRadius="@dimen/menu_item_corner_radius"
+            app:cardElevation="@dimen/primary_elevation">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+                style="@style/MatchParentTheme"
+                android:id="@+id/menu_item_click_view"
+                android:clickable="true"
+                android:background="@drawable/menu_item_background">
+            
+            <ImageView
+                    android:id="@+id/menu_image"
+                    android:layout_width="@dimen/menu_item_image_width"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/img_splash" />
+            
+            <View
+                    android:id="@+id/menu_line"
+                    android:layout_width="@dimen/vertical_line_width"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="@dimen/vertical_margin"
+                    android:layout_marginRight="@dimen/horizontal_padding"
+                    android:background="@color/colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            
+            
+            <com.example.howlong.widgets.RegularFontTextView
+                    android:id="@+id/menu_title"
+                    style="@style/MenuItemTextViewStyle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/menu_image"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Text" />
+        
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
