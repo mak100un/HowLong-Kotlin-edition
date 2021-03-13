@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android">
+    <ripple android:color="@android:color/white">
+        <item>
+            <shape android:shape="rectangle">
+                <solid android:color="@color/colorGray" />
+                <corners
+                        android:bottomLeftRadius="@dimen/vertical_line_width"
+                        android:bottomRightRadius="@dimen/vertical_line_width"
+                        android:topLeftRadius="@dimen/vertical_line_width"
+                        android:topRightRadius="@dimen/vertical_line_width" />
+            </shape>
+        </item>
+    </ripple>
+</inset>

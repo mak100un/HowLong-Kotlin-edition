@@ -37,7 +37,7 @@ class MenuFragment : Fragment() {
         for(day in MenuItemType.values())
             menuItems.add(MenuItem(day))
 
-        val listView = view.findViewById(R.id.menu_list) as ListView
+        val listView: ListView = view.findViewById(R.id.menu_list)
         listView.addHeaderView(View.inflate(context, R.layout.menu_header, null), "Header", false)
 
         listView.adapter = MenuItemAdapter(context!!, menuItems) {menuType: MenuItemType ->

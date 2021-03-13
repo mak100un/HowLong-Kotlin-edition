@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/HeightWrapContentTheme"
+        android:orientation="vertical">
+    
+    <com.example.howlong.widgets.LightFontTextView
+            android:id="@+id/group_header_text"
+            android:layout_marginVertical="@dimen/vertical_spacing"
+            android:layout_marginHorizontal="@dimen/menu_item_horizontal_margin"
+            style="@style/GroupHeaderTextViewStyle"
+            tools:text="@string/march_2021" />
+    
+    <View style="@style/HorizontalDividerStyle"/>
+    
+</LinearLayout>

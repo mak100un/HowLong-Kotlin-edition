@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent" android:layout_height="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/MatchParentTheme"
+        android:background="@color/colorBackground"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/history_swipe_refresh_layout"
+            style="@style/MatchParentTheme"
+            android:layout_marginBottom="@dimen/bottom_sheet_header_height">
+    
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/history_recycler"
+                android:scrollbars="vertical"
+                style="@style/MatchParentTheme"
+                tools:itemCount="200"/>
+    
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    
+    <com.example.howlong.widgets.DimView
+            android:id="@+id/dim_view"
+            style="@style/MatchParentTheme" />
+    
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_record_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/horizontal_padding"
+            android:layout_marginBottom="@dimen/fab_bottom_margin"
+            android:clickable="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_plus"
+            app:backgroundTint="@color/colorSecondary"
+            app:elevation="@dimen/primary_elevation"
+            app:layout_anchor="@id/history_recycler"
+            app:layout_anchorGravity="end|bottom"
+            app:pressedTranslationZ="@dimen/vertical_margin"
+            app:rippleColor="@color/colorLight" />
+    
+    <include layout="@layout/history_bottom_sheet" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

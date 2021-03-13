@@ -5,6 +5,7 @@
         android:id="@+id/menu"
         style="@style/MatchParentTheme"
         android:layout_marginVertical="@dimen/vertical_margin"
+        android:background="@color/colorBackground"
         tools:context=".fragments.menu.MenuFragment">
     
     <ListView

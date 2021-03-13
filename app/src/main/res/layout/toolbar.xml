@@ -3,4 +3,5 @@
         android:layout_height="wrap_content"
         android:background="@android:color/black"
         android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:elevation="@dimen/primary_elevation"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>

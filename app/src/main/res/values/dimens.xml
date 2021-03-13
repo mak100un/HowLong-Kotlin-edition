@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="primary_elevation">6dp</dimen>
+    <dimen name="cool_elevation">24dp</dimen>
     <dimen name="vertical_margin">12dp</dimen>
     <dimen name="horizontal_padding">16dp</dimen>
     <dimen name="header_bottom_padding">30dp</dimen>
@@ -12,6 +13,17 @@
     <dimen name="menu_item_corner_radius">24dp</dimen>
     <dimen name="menu_item_image_width">204dp</dimen>
     <dimen name="vertical_line_width">6dp</dimen>
+    <dimen name="vertical_spacing">6dp</dimen>
     <dimen name="button_corner_radius">8dp</dimen>
     <dimen name="button_content_padding">10dp</dimen>
+    <dimen name="bottom_sheet_header_height">80dp</dimen>
+    <dimen name="fab_bottom_margin">100dp</dimen>
+    <dimen name="bottom_sheet_header_height_without_line">56dp</dimen>
+    <dimen name="bottom_sheet_row_height">40dp</dimen>
+    <dimen name="bottom_sheet_header_line_width">50dp</dimen>
+    <dimen name="bottom_sheet_header_line_vertical_margin">9dp</dimen>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="content_bottom_safe_padding">40dp</dimen>
+    <dimen name="blocks_vertical_spacing">24dp</dimen>
+    <dimen name="progressbar_size">40dp</dimen>
 </resources>

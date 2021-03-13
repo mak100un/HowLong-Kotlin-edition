@@ -2,14 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="vertical"
         style="@style/HeightWrapContentTheme"
-        android:paddingBottom="@dimen/header_bottom_padding"
-        >
-    
-    <com.example.howlong.widgets.LightFontTextView
-            style="@style/TitleTextViewStyle"
-            android:text="@string/time_tracking"/>
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/header_bottom_padding">
     
     <com.airbnb.lottie.LottieAnimationView
             style="@style/LottieAnimationStyle"
@@ -18,5 +13,5 @@
             app:lottie_loop="true"
             tools:background="@color/colorPrimary"
             tools:lottie_fileName="time.json" />
-    
+
 </LinearLayout>

@@ -1,8 +1,24 @@
 <resources>
     <string name="app_name">HowLong</string>
     <string name="estimate">Оценить приложение</string>
-    <string name="time_tracking">Time tracking</string>
     <string name="history">История</string>
     <string name="settings">Настройки</string>
     <string name="active_record">Активная запись</string>
+    <string name="record_period">Период:</string>
+    <string name="flaw">Недоработка:</string>
+    <string name="recycling">Переработка:</string>
+    <string name="flaws">Недоработок</string>
+    <string name="recyclings">Переработок</string>
+    <string name="statistics">Статистика</string>
+    <string name="all_records">Всего записей</string>
+    <string name="grouping">Группировка</string>
+    <string name="enabled">Вкл.</string>
+    <string name="disabled">Выкл.</string>
+    <string name="march_2021">Март, 2021</string>
+    
+    <string-array name="grouping_types">
+        <item>по дням</item>
+        <item>по месяцам</item>
+        <item>по годам</item>
+    </string-array>
 </resources>
