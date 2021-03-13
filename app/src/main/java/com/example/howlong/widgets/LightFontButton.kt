@@ -23,19 +23,5 @@ class LightFontButton: androidx.appcompat.widget.AppCompatButton {
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
     {
         typeface = Typeface.createFromAsset(context.assets, "Roboto-Light.ttf")
-        this.setOnClickListener(OnClickListener(fun (view: View?)
-        {
-            ObjectAnimator.ofFloat(this, "elevation", Utils.dpToPx(10F, context).toFloat(),  Utils.dpToPx(21F, context).toFloat()).apply {
-                duration = 250
-                repeatCount = 0
-                repeatMode = ValueAnimator.REVERSE
-                addListener(object : AnimatorListenerAdapter() {
-                    override fun onAnimationEnd(animation: Animator) {
-                        elevation = Utils.dpToPx(10F, context).toFloat()
-                    }
-                })
-                start()
-            }
-        }))
     }
 }

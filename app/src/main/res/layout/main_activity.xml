@@ -3,7 +3,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         style="@style/MatchParentTheme"
         android:orientation="vertical"
-        tools:context=".MenuActivity">
+        tools:context=".MainActivity">
     
     <include
             android:id="@+id/toolbar"
