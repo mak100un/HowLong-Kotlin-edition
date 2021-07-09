@@ -15,7 +15,7 @@ class MenuItemAdapter
 (
     context: Context,
     menuItems: List<MenuItem>,
-    val tapAction: (MenuItemType) -> Unit
+    val tapAction: (View, MenuItemType) -> Unit
 ) :
     BaseListArrayAdapter<MenuItem, MenuItemViewHolder>(context, R.layout.menu_list_item, menuItems) {
 
@@ -27,7 +27,7 @@ class MenuItemAdapter
 
         RxView.clicks(holder.clickView)
             .throttleFirst(250, TimeUnit.MILLISECONDS)
-            .subscribe { _ -> tapAction(element.menuType) }
+            .subscribe { tapAction(holder.clickView, element.menuType) }
     }
 
     override fun onCreateItemViewHolder(view: View): MenuItemViewHolder {

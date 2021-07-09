@@ -24,7 +24,7 @@ BaseListArrayAdapter<HistoryStatistic, HistoryStatisticViewHolder>
     {
         holder.placeholderView.setText(element.placeholderTextRes)
         holder.countView.setTextColor(ContextCompat.getColor(context, element.placeholderColorRes))
-        holder.countView.text = element.records_count.toString()
+        holder.countView.text = element.recordsCount.toString()
     }
 
     override fun onCreateItemViewHolder(view: View): HistoryStatisticViewHolder {

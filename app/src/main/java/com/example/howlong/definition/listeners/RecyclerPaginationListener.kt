@@ -13,12 +13,13 @@ abstract class RecyclerPaginationListener
     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
         super.onScrolled(recyclerView, dx, dy)
         additionalOnScrolled(recyclerView, dx, dy)
-        if (needLoadMore() &&
-            layoutManager.itemCount > 0 &&
-            layoutManager.findLastVisibleItemPosition() >= layoutManager.itemCount - loadingOffset)
-            loadMore()
+        val diff = layoutManager.itemCount - loadingOffset
+        if (onNeedLoadMore() &&
+            diff > 0 &&
+            layoutManager.findLastVisibleItemPosition() >= diff)
+            onLoadMore()
     }
 
-    abstract fun needLoadMore(): Boolean
-    abstract fun loadMore()
+    abstract fun onNeedLoadMore(): Boolean
+    abstract fun onLoadMore()
 }

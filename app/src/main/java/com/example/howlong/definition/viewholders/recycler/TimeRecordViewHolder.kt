@@ -8,9 +8,9 @@ import com.example.howlong.R
 
 class TimeRecordViewHolder(view: View): RecyclerView.ViewHolder(view)
 {
-    val recordNameView: TextView = view.findViewById(R.id.record_name)
-    val recordPeriodView: TextView = view.findViewById(R.id.record_period)
+    val recordNameTextView: TextView = view.findViewById(R.id.record_name)
+    val recordPeriodTextView: TextView = view.findViewById(R.id.record_period)
     val resultBlockView: LinearLayout = view.findViewById(R.id.resultBlock)
     val recordResultPlaceholderView: TextView = view.findViewById(R.id.record_result_placeholder)
-    val recordResultView: TextView = view.findViewById(R.id.record_result)
+    val recordResultTextView: TextView = view.findViewById(R.id.record_result)
 }

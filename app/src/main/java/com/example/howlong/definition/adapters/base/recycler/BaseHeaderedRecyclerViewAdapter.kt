@@ -10,12 +10,12 @@ import com.example.howlong.definition.items.base.recycler.BaseRecyclerElement
 
 abstract class BaseHeaderedRecyclerViewAdapter
 <
-        TItem: BaseRecyclerElement,
-        THeader: BaseRecyclerElement,
-        TFooter: BaseRecyclerElement,
-        TItemViewHolder: RecyclerView.ViewHolder,
-        THeaderViewHolder: RecyclerView.ViewHolder,
-        TFooterViewHolder: RecyclerView.ViewHolder
+    TItem: BaseRecyclerElement,
+    THeader: BaseRecyclerElement,
+    TFooter: BaseRecyclerElement,
+    TItemViewHolder: RecyclerView.ViewHolder,
+    THeaderViewHolder: RecyclerView.ViewHolder,
+    TFooterViewHolder: RecyclerView.ViewHolder
 >
 (
     val context: Context,

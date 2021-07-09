@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/HeightWrapContentTheme"
+        android:orientation="vertical"
+        android:background="@color/colorBackground">
+    
+    <LinearLayout
+            style="@style/HeightWrapContentTheme"
+            android:layout_marginHorizontal="@dimen/horizontal_padding"
+            android:layout_marginVertical="@dimen/vertical_margin"
+            android:orientation="horizontal">
+        
+        <com.example.howlong.widgets.LightFontTextView
+                android:id="@+id/setting_title"
+                android:layout_gravity="center_vertical"
+                style="@style/DescriptionTextViewStyle"
+                android:layout_width="@dimen/zero"
+                android:layout_weight="1"
+                tools:text="Заголовок"/>
+        
+        <com.example.howlong.widgets.BoldFontButton
+                android:id="@+id/setting_button_1"
+                style="@style/ActionButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/vertical_spacing"
+                tools:text="Кнопка 1" />
+    
+        <com.example.howlong.widgets.BoldFontButton
+                android:id="@+id/setting_button_2"
+                style="@style/ActionButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/vertical_spacing"
+                tools:text="Кнопка 2" />
+    
+    </LinearLayout>
+    
+    <View android:id="@+id/setting_divider"
+            style="@style/HorizontalDividerStyle"/>
+
+</LinearLayout>

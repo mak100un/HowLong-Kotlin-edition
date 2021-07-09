@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircularProgressBar">
+        <attr format="float" name="maximum"/>
+        <attr format="float" name="progress"/>
+        <attr format="float" name="startAngle"/>
+        <attr format="color" name="foregroundStrokeColor"/>
+        <attr format="dimension" name="foregroundStrokeWidth"/>
+        <attr format="boolean" name="drawBackgroundStroke"/>
+        <attr format="color" name="backgroundStrokeColor"/>
+        <attr format="dimension" name="backgroundStrokeWidth"/>
+        <attr format="enum" name="foregroundStrokeCap">
+            <enum name="butt" value="0"/>
+            <enum name="round" value="1"/>
+            <enum name="square" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>

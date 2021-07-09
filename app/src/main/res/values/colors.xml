@@ -4,6 +4,8 @@
     <color name="colorPrimary">#4688B5</color>
     <color name="colorPrimaryDark">#2F2F2F</color>
     <color name="colorAccent">#4688B5</color>
+    <color name="colorAction">#0B6BB0</color>
+    <color name="colorActionRipple">#55068DF4</color>
     <color name="colorLight">#FFFFFF</color>
     <color name="colorBackground">#FFFFFF</color>
     <color name="colorToolbarShadow">#88333333</color>
@@ -12,6 +14,7 @@
     <color name="colorHistory">#84BFEB</color>
     <color name="colorActiveRecord">@android:color/black</color>
     <color name="colorGray">#D3D3D3</color>
+    <color name="colorDarkerGray">#708090</color>
     <color name="colorGreen">#00AB00</color>
     <color name="colorRed">#F5244C</color>
     <color name="colorBlackRipple">#32000000</color>

@@ -7,5 +7,5 @@ import com.example.howlong.R
 
 class LoadingViewHolder(view: View): RecyclerView.ViewHolder(view)
 {
-    val loadingView: ProgressBar = view.findViewById(R.id.loading_view)
+    val loadingProgressBar: ProgressBar = view.findViewById(R.id.loading_view)
 }

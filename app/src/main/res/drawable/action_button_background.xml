@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android">
+    <ripple android:color="@color/colorActionRipple">
+        <item>
+            <shape
+                    android:padding="@dimen/zero"
+                    android:shape="rectangle">
+                <stroke
+                    android:width="@dimen/action_button_stroke_width"
+                    android:color="@color/colorAction" />
+                <solid android:color="@color/colorLight" />
+                <!-- this one is ths color of the Rounded Button -->
+                <corners android:radius="@dimen/action_button_corner_radius" />
+            </shape>
+        
+        </item>
+    </ripple>
+</inset>

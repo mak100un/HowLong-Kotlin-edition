@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/MatchParentTheme"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/vertical_margin"
+        tools:context=".fragments.record.RecordFragment">
+    
+    <LinearLayout
+            style="@style/HeightWrapContentTheme"
+            android:layout_marginHorizontal="@dimen/horizontal_padding"
+            android:orientation="horizontal">
+        
+        <com.example.howlong.widgets.LightFontTextView
+                style="@style/GroupHeaderTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/start" />
+        
+        <com.example.howlong.widgets.BoldFontButton
+                android:id="@+id/start_now_button"
+                style="@style/ActionButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/vertical_spacing"
+                android:layout_marginVertical="@dimen/vertical_spacing"
+                android:text="@string/now" />
+    
+    </LinearLayout>
+    
+    <com.example.howlong.widgets.pickers.DateTimePicker
+            android:id="@+id/start_date_time_picker"
+            style="@style/HeightWrapContentTheme"
+            android:layout_marginHorizontal="@dimen/horizontal_padding" />
+    
+    <LinearLayout
+            style="@style/HeightWrapContentTheme"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/horizontal_padding"
+            android:layout_marginVertical="@dimen/vertical_spacing"
+            android:layout_weight="1">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout style="@style/MatchParentTheme">
+            
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/today_total_layout"
+                    style="@style/WrapContentTheme"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                
+                <com.example.howlong.widgets.LightFontTextView
+                        android:id="@+id/today_total_timer_header"
+                        style="@style/PrimaryBlueTextViewStyle"
+                        android:text="@string/today_total"
+                        android:textSize="@dimen/total_timer_header_text_size"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                
+                <com.example.howlong.widgets.CircularProgressBar
+                        android:id="@+id/today_total_timer_progressbar"
+                        android:layout_width="@dimen/total_timer_progressbar_size"
+                        android:layout_height="@dimen/total_timer_progressbar_size"
+                        android:layout_marginTop="@dimen/vertical_spacing"
+                        app:backgroundStrokeColor="@color/colorGray"
+                        app:backgroundStrokeWidth="@dimen/total_timer_progressbar_stroke_width"
+                        app:drawBackgroundStroke="true"
+                        app:foregroundStrokeColor="@color/colorPrimary"
+                        app:foregroundStrokeWidth="@dimen/total_timer_progressbar_stroke_width"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/today_total_timer_header"
+                        app:maximum="60" />
+                
+                <LinearLayout
+                        style="@style/WrapContentTheme"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@id/today_total_timer_progressbar"
+                        app:layout_constraintLeft_toLeftOf="@id/today_total_timer_progressbar"
+                        app:layout_constraintRight_toRightOf="@id/today_total_timer_progressbar"
+                        app:layout_constraintTop_toTopOf="@id/today_total_timer_progressbar">
+                    
+                    <com.example.howlong.widgets.RegularFontTextView
+                            android:id="@+id/today_total_timer_days_textview"
+                            style="@style/PrimaryBlueTextViewStyle"
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="@dimen/total_timer_small_text_size"
+                            tools:text="1 д" />
+                    
+                    <com.example.howlong.widgets.RegularFontTextView
+                            android:id="@+id/today_total_timer_textview"
+                            style="@style/PrimaryBlueTextViewStyle"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginVertical="@dimen/vertical_spacing"
+                            android:text="@string/default_time"
+                            android:textSize="@dimen/total_timer_text_size"
+                            tools:text="@string/default_time" />
+                    
+                    <com.example.howlong.widgets.RegularFontTextView
+                            android:id="@+id/today_total_timer_hours_textview"
+                            style="@style/PrimaryBlueTextViewStyle"
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="@dimen/total_timer_small_text_size"
+                            tools:text="1 ч" />
+                
+                </LinearLayout>
+            
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            
+            <com.example.howlong.widgets.CircularProgressBar
+                    android:id="@+id/current_timer_progressbar"
+                    android:layout_width="@dimen/timer_progressbar_size"
+                    android:layout_height="@dimen/timer_progressbar_size"
+                    app:backgroundStrokeColor="@color/colorGray"
+                    app:backgroundStrokeWidth="@dimen/timer_progressbar_stroke_width"
+                    app:drawBackgroundStroke="true"
+                    app:foregroundStrokeColor="@color/colorPrimary"
+                    app:foregroundStrokeWidth="@dimen/timer_progressbar_stroke_width"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:maximum="60" />
+            
+            <LinearLayout
+                    style="@style/WrapContentTheme"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@id/current_timer_progressbar"
+                    app:layout_constraintLeft_toLeftOf="@id/current_timer_progressbar"
+                    app:layout_constraintRight_toRightOf="@id/current_timer_progressbar"
+                    app:layout_constraintTop_toTopOf="@id/current_timer_progressbar">
+                
+                <com.example.howlong.widgets.RegularFontTextView
+                        android:id="@+id/current_timer_days_textview"
+                        style="@style/PrimaryBlueTextViewStyle"
+                        android:layout_gravity="center_horizontal"
+                        tools:text="1 д" />
+                
+                <com.example.howlong.widgets.RegularFontTextView
+                        android:id="@+id/current_timer_textview"
+                        style="@style/PrimaryBlueTextViewStyle"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginVertical="@dimen/vertical_margin"
+                        android:text="@string/default_time"
+                        android:textSize="@dimen/large_text_size"
+                        tools:text="@string/default_time" />
+                
+                <com.example.howlong.widgets.RegularFontTextView
+                        android:id="@+id/current_timer_hours_textview"
+                        style="@style/PrimaryBlueTextViewStyle"
+                        android:layout_gravity="center_horizontal"
+                        tools:text="1 ч" />
+            
+            </LinearLayout>
+    
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/whole_total_layout"
+                    style="@style/WrapContentTheme"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+        
+                <com.example.howlong.widgets.LightFontTextView
+                        android:id="@+id/whole_total_timer_header"
+                        style="@style/PrimaryBlueTextViewStyle"
+                        android:text="@string/whole_total"
+                        android:textSize="@dimen/total_timer_header_text_size"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+        
+                <com.example.howlong.widgets.CircularProgressBar
+                        android:id="@+id/whole_total_timer_progressbar"
+                        android:layout_width="@dimen/total_timer_progressbar_size"
+                        android:layout_height="@dimen/total_timer_progressbar_size"
+                        android:layout_marginBottom="@dimen/vertical_spacing"
+                        app:backgroundStrokeColor="@color/colorGray"
+                        app:backgroundStrokeWidth="@dimen/total_timer_progressbar_stroke_width"
+                        app:drawBackgroundStroke="true"
+                        app:foregroundStrokeColor="@color/colorPrimary"
+                        app:foregroundStrokeWidth="@dimen/total_timer_progressbar_stroke_width"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/whole_total_timer_header"
+                        app:maximum="60" />
+        
+                <LinearLayout
+                        style="@style/WrapContentTheme"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@id/whole_total_timer_progressbar"
+                        app:layout_constraintLeft_toLeftOf="@id/whole_total_timer_progressbar"
+                        app:layout_constraintRight_toRightOf="@id/whole_total_timer_progressbar"
+                        app:layout_constraintTop_toTopOf="@id/whole_total_timer_progressbar">
+            
+                    <com.example.howlong.widgets.RegularFontTextView
+                            android:id="@+id/whole_total_timer_days_textview"
+                            style="@style/PrimaryBlueTextViewStyle"
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="@dimen/total_timer_small_text_size"
+                            tools:text="1 д" />
+            
+                    <com.example.howlong.widgets.RegularFontTextView
+                            android:id="@+id/whole_total_timer_textview"
+                            style="@style/PrimaryBlueTextViewStyle"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginVertical="@dimen/vertical_spacing"
+                            android:text="@string/default_time"
+                            android:textSize="@dimen/total_timer_text_size"
+                            tools:text="@string/default_time" />
+            
+                    <com.example.howlong.widgets.RegularFontTextView
+                            android:id="@+id/whole_total_timer_hours_textview"
+                            style="@style/PrimaryBlueTextViewStyle"
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="@dimen/total_timer_small_text_size"
+                            tools:text="1 ч" />
+        
+                </LinearLayout>
+    
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    
+    <LinearLayout
+            android:layout_marginTop="@dimen/vertical_margin"
+            style="@style/HeightWrapContentTheme"
+            android:layout_marginHorizontal="@dimen/horizontal_padding"
+            android:orientation="horizontal">
+        
+        <com.example.howlong.widgets.LightFontTextView
+                style="@style/GroupHeaderTextViewStyle"
+                android:layout_width="0dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/end" />
+        
+        <com.example.howlong.widgets.BoldFontButton
+                android:id="@+id/end_now_button"
+                style="@style/ActionButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/vertical_spacing"
+                android:layout_marginVertical="@dimen/vertical_spacing"
+                android:text="@string/now" />
+    
+    </LinearLayout>
+    
+    <com.example.howlong.widgets.pickers.DateTimePicker
+            android:id="@+id/end_date_time_picker"
+            style="@style/HeightWrapContentTheme"
+            android:layout_marginHorizontal="@dimen/horizontal_padding"
+            android:layout_marginBottom="@dimen/vertical_spacing" />
+    
+    <com.example.howlong.widgets.RegularFontButton
+            android:id="@+id/save_record_button"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="@dimen/horizontal_padding"
+            android:layout_marginBottom="@dimen/bottom_content_padding"
+            android:text="@string/save" />
+
+</LinearLayout>

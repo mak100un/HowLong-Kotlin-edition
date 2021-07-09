@@ -3,26 +3,17 @@
     <item android:state_pressed="true"
         android:state_enabled="true">
         <set>
-            <objectAnimator android:propertyName="translationX"
-                    android:duration="120"
-                    android:valueTo="8dp"
-                    android:valueType="floatType"/>
             <objectAnimator android:propertyName="elevation"
                     android:duration="120"
-                    android:valueTo="4dp"
+                    android:valueTo="@dimen/top_elevation"
                     android:valueType="floatType"/>
         </set>
     </item>
     <item android:state_enabled="true">
         <set>
-            <objectAnimator android:propertyName="translationX"
-                    android:duration="120"
-                    android:valueTo="4dp"
-                    android:startDelay="80"
-                    android:valueType="floatType"/>
             <objectAnimator android:propertyName="elevation"
                     android:duration="120"
-                    android:valueTo="2dp"
+                    android:valueTo="@dimen/primary_elevation"
                     android:valueType="floatType"/>
         </set>
     </item>

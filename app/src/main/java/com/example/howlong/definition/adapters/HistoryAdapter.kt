@@ -1,23 +1,25 @@
 package com.example.howlong.definition.adapters
 
 import android.content.Context
-import android.os.Build
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.howlong.R
 import com.example.howlong.definition.adapters.base.recycler.BaseGroupedHeaderedRecyclerViewAdapter
 import com.example.howlong.definition.dtos.TimeRecord
 import com.example.howlong.definition.enums.HistoryGroupingType
+import com.example.howlong.definition.enums.MenuItemType
 import com.example.howlong.definition.items.HistoryGroupItem
 import com.example.howlong.definition.items.LoadingItem
 import com.example.howlong.definition.items.base.recycler.BaseRecyclerElement
 import com.example.howlong.definition.viewholders.recycler.HistoryGroupViewHolder
 import com.example.howlong.definition.viewholders.recycler.LoadingViewHolder
 import com.example.howlong.definition.viewholders.recycler.TimeRecordViewHolder
+import com.example.howlong.utils.TimeFormatterUtils
+import com.jakewharton.rxbinding.view.RxView
 import java.text.SimpleDateFormat
-import java.time.Instant
-import java.time.format.DateTimeFormatter
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.math.abs
@@ -25,7 +27,8 @@ import kotlin.math.abs
 class HistoryAdapter
 (
     context: Context,
-    elements: ArrayList<BaseRecyclerElement>
+    elements: ArrayList<BaseRecyclerElement>,
+    val tapAction: (View, TimeRecord) -> Unit
 ) :
     BaseGroupedHeaderedRecyclerViewAdapter
     <
@@ -50,6 +53,10 @@ class HistoryAdapter
         elements
     )
 {
+    private val headerDateFormatter = SimpleDateFormat(", yyyy", Locale("ru"))
+    private val timeFormatter =  SimpleDateFormat("HH:mm", Locale("ru"))
+    private val dateFormatter =  SimpleDateFormat("d MMMM, ", Locale("ru"))
+
     override fun onBindGroupFooterViewHolder(
         context: Context,
         holder: RecyclerView.ViewHolder,
@@ -66,7 +73,7 @@ class HistoryAdapter
     ) {
         holder.groupHeaderTextView.text = when(element.groupingType)
         {
-            HistoryGroupingType.Month -> getMonthName(element.date.get(Calendar.MONTH)) + SimpleDateFormat(", yyyy", Locale("ru")).format(element.date.time)
+            HistoryGroupingType.Month -> TimeFormatterUtils.GetMonthName(element.date.get(Calendar.MONTH)) + headerDateFormatter.format(element.date.time)
             else -> TODO("Not yet implemented")
         }
     }
@@ -76,30 +83,28 @@ class HistoryAdapter
         holder: TimeRecordViewHolder,
         element: TimeRecord
     ) {
-        val dateTimeFormatter =  SimpleDateFormat("HH:mm", Locale("ru"))
+        holder.recordResultTextView.text =  TimeFormatterUtils.ToHHmmFormat(abs(element.recycling))
+        holder.recordPeriodTextView.text = timeFormatter.format(element.startDate.time) + " - " + timeFormatter.format(element.endDate.time)
 
-        val timeInMillis = abs(element.recycling)
-        val hours = TimeUnit.MILLISECONDS.toHours(timeInMillis)
-
-        holder.recordResultView.text = dateTimeFormatter
-            .format(GregorianCalendar(0, 0, 0, hours.toInt(), (TimeUnit.MILLISECONDS.toMinutes(timeInMillis) - hours * 60).toInt()).time)
-        holder.recordPeriodView.text = dateTimeFormatter.format(element.startDate.time) + " - " + SimpleDateFormat("HH:mm", Locale("ru")).format(element.endDate.time)
-        dateTimeFormatter.applyPattern("d MMMM, ")
-
-        holder.recordNameView.text = element.name ?: dateTimeFormatter.format(element.startDate.time) + getDayOfWeekShortName(element.startDate.get(Calendar.DAY_OF_WEEK))
+        holder.recordNameTextView.text = element.name ?: dateFormatter.format(element.startDate.time) +
+                TimeFormatterUtils.GetDayOfWeekShortName(element.startDate.get(Calendar.DAY_OF_WEEK))
         when(element.recycling >= 0)
         {
             true ->
             {
                 holder.recordResultPlaceholderView.setText(R.string.recycling)
-                holder.recordResultView.setTextColor(ContextCompat.getColor(context!!, R.color.colorGreen))
+                holder.recordResultTextView.setTextColor(ContextCompat.getColor(context!!, R.color.colorGreen))
             }
             else ->
             {
                 holder.recordResultPlaceholderView.setText(R.string.flaw)
-                holder.recordResultView.setTextColor(ContextCompat.getColor(context!!, R.color.colorRed))
+                holder.recordResultTextView.setTextColor(ContextCompat.getColor(context!!, R.color.colorRed))
             }
         }
+
+        RxView.clicks(holder.itemView)
+            .throttleFirst(250, TimeUnit.MILLISECONDS)
+            .subscribe { tapAction(holder.itemView, element) }
     }
 
     override fun onBindFooterViewHolder(
@@ -127,41 +132,6 @@ class HistoryAdapter
             footerLayoutRes -> LoadingViewHolder(view)
             groupHeaderLayoutRes -> HistoryGroupViewHolder(view)
             else -> throw NotImplementedError("Use another type of adapter")
-        }
-    }
-
-    private fun getMonthName(month: Int): String
-    {
-        return when(month)
-        {
-            0 -> "Январь"
-            1 -> "Февраль"
-            2 -> "Март"
-            3 -> "Апрель"
-            4 -> "Май"
-            5 -> "Июнь"
-            6 -> "Июль"
-            7 -> "Август"
-            8 -> "Сентябрь"
-            9 -> "Октябрь"
-            10 -> "Ноябрь"
-            11 -> "Декабрь"
-            else -> throw NotImplementedError("No such month")
-        }
-    }
-
-    private fun getDayOfWeekShortName(dayOfWeek: Int): String
-    {
-        return when(dayOfWeek)
-        {
-            1 -> "Вс"
-            2 -> "Пн"
-            3 -> "Вт"
-            4 -> "Ср"
-            5 -> "Чт"
-            6 -> "Пт"
-            7 -> "Сб"
-            else -> throw NotImplementedError("No such month")
         }
     }
 }

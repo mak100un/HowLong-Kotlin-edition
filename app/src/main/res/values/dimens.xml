@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="primary_elevation">6dp</dimen>
+    <dimen name="top_elevation">12dp</dimen>
     <dimen name="cool_elevation">24dp</dimen>
     <dimen name="vertical_margin">12dp</dimen>
+    <dimen name="primary_button_top_margin">24dp</dimen>
     <dimen name="horizontal_padding">16dp</dimen>
     <dimen name="header_bottom_padding">30dp</dimen>
     <dimen name="lottie_width">240dp</dimen>
@@ -14,16 +16,29 @@
     <dimen name="menu_item_image_width">204dp</dimen>
     <dimen name="vertical_line_width">6dp</dimen>
     <dimen name="vertical_spacing">6dp</dimen>
-    <dimen name="button_corner_radius">8dp</dimen>
+    <dimen name="button_corner_radius">12dp</dimen>
+    <dimen name="action_button_corner_radius">18dp</dimen>
     <dimen name="button_content_padding">10dp</dimen>
     <dimen name="bottom_sheet_header_height">80dp</dimen>
     <dimen name="fab_bottom_margin">100dp</dimen>
     <dimen name="bottom_sheet_header_height_without_line">56dp</dimen>
     <dimen name="bottom_sheet_row_height">40dp</dimen>
+    <dimen name="bottom_content_padding">40dp</dimen>
     <dimen name="bottom_sheet_header_line_width">50dp</dimen>
     <dimen name="bottom_sheet_header_line_vertical_margin">9dp</dimen>
     <dimen name="zero">0dp</dimen>
     <dimen name="content_bottom_safe_padding">40dp</dimen>
     <dimen name="blocks_vertical_spacing">24dp</dimen>
     <dimen name="progressbar_size">40dp</dimen>
+    <dimen name="timer_progressbar_size">220dp</dimen>
+    <dimen name="total_timer_progressbar_size">90dp</dimen>
+    <dimen name="timer_progressbar_stroke_width">5dp</dimen>
+    <dimen name="total_timer_progressbar_stroke_width">2dp</dimen>
+    <dimen name="action_button_horizontal_padding">6dp</dimen>
+    <dimen name="action_button_stroke_width">1dp</dimen>
+    <dimen name="large_text_size">30sp</dimen>
+    <dimen name="total_timer_text_size">16sp</dimen>
+    <dimen name="total_timer_small_text_size">9sp</dimen>
+    <dimen name="total_timer_header_text_size">12sp</dimen>
+    <dimen name="action_button_height">36dp</dimen>
 </resources>

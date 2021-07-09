@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/HeightWrapContentTheme"
+        android:orientation="vertical"
+        android:background="@color/colorBackground">
+    
+    <LinearLayout
+            style="@style/HeightWrapContentTheme"
+            android:layout_marginHorizontal="@dimen/horizontal_padding"
+            android:layout_marginVertical="@dimen/vertical_margin"
+            android:orientation="horizontal">
+        
+        <LinearLayout
+                style="@style/HeightWrapContentTheme"
+                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/zero"
+                android:layout_weight="1"
+                android:orientation="vertical">
+            
+            <com.example.howlong.widgets.LightFontTextView
+                    android:id="@+id/setting_title"
+                    style="@style/DescriptionTextViewStyle"
+                    tools:text="Заголовок"/>
+    
+            <com.example.howlong.widgets.LightFontTextView
+                    android:id="@+id/setting_description"
+                    android:layout_marginTop="@dimen/vertical_spacing"
+                    style="@style/SettingDescriptionTextViewStyle"
+                    tools:text="Описание"/>
+            
+        </LinearLayout>
+    
+        <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/setting_switch"
+                style="@style/WrapContentTheme"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/vertical_spacing"/>
+    
+    </LinearLayout>
+    
+    <View android:id="@+id/setting_divider"
+            style="@style/HorizontalDividerStyle"/>
+
+</LinearLayout>

@@ -14,7 +14,34 @@
     <string name="grouping">Группировка</string>
     <string name="enabled">Вкл.</string>
     <string name="disabled">Выкл.</string>
-    <string name="march_2021">Март, 2021</string>
+    <string name="date">Дата</string>
+    <string name="time">Время</string>
+    <string name="start">Начало</string>
+    <string name="today_total">Итого за сегодня:</string>
+    <string name="whole_total">Итого за все время:</string>
+    <string name="end">Конец</string>
+    <string name="now">СЕЙЧАС</string>
+    <string name="save">СОХРАНИТЬ</string>
+    <string name="default_time">00:00</string>
+    <string name="language">Язык</string>
+    <string name="theme">Тема</string>
+    <string name="notifications">Уведомления</string>
+    <string name="clean_history">История</string>
+    <string name="version">Версия</string>
+    <string name="support">Поддержка</string>
+    <string name="improvement">Развитие</string>
+    <string name="developer">Автор</string>
+    <string name="russian">Русский</string>
+    <string name="english">English</string>
+    <string name="notifications_description">Отображать таймер с текущим временем</string>
+    <string name="clean_history_description">Очистить историю</string>
+    <string name="version_description">0.1</string>
+    <string name="support_description">Написать в поддержку</string>
+    <string name="improvement_description">Поддержать приложение</string>
+    <string name="developer_description">\@mc100un</string>
+    <string name="main">Основное</string>
+    <string name="other">Остальное</string>
+    <string name="about">О приложении</string>
     
     <string-array name="grouping_types">
         <item>по дням</item>

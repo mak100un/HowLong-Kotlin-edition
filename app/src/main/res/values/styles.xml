@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:splitMotionEvents">false</item>
         <item name="android:windowEnableSplitTouch">false</item>
         <!-- Customize your theme here. -->
@@ -11,7 +11,8 @@
         <item name="android:colorActivatedHighlight">@color/colorActivatedHighlight</item>
         <item name="textAllCaps">false</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
+        <item name="android:datePickerDialogTheme">@style/MaterialComponentsDialogStyle</item>
+        <item name="android:timePickerDialogTheme">@style/MaterialComponentsDialogStyle</item>
         <!-- This is the styling for action bar -->
         <item name="actionBarStyle">@style/AppTheme.ActionBar</item>
         <!--To change the text styling of options menu items</item>-->
@@ -28,8 +29,13 @@
         <item name="windowActionBar">false</item>
     </style>
     
-    <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
+    <style name="MaterialComponentsDialogStyle" parent="Theme.MaterialComponents.Light.Dialog">
         <item name="colorAccent">@color/colorActivatedHighlight</item>
+        <item name="android:buttonBarButtonStyle">@style/DialogButtonBarStyle</item>
+    </style>
+    
+    <style name="DialogButtonBarStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/colorActivatedHighlight</item>
     </style>
     
     <style name="AppTheme.ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
@@ -56,6 +62,11 @@
     
     <style name="HeightWrapContentTheme">
         <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    
+    <style name="WrapContentTheme">
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
     
@@ -88,6 +99,10 @@
         <item name="android:textSize">20sp</item>
     </style>
     
+    <style name="SettingsGroupHeaderTextViewStyle" parent="PrimaryBlueTextViewStyle">
+        <item name="android:textSize">13sp</item>
+    </style>
+    
     <style name="PlaceholderTextViewStyle" parent="PrimaryBlueTextViewStyle">
         <item name="android:textColor">@android:color/darker_gray</item>
     </style>
@@ -108,6 +123,11 @@
         <item name="android:textSize">18sp</item>
     </style>
     
+    <style name="SettingDescriptionTextViewStyle" parent="DescriptionTextViewStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorDarkerGray</item>
+    </style>
+    
     <style name="NormalTextViewStyle" parent="SubTitleTextViewStyle">
         <item name="android:textSize">16sp</item>
         <item name="android:layout_width">wrap_content</item>
@@ -117,12 +137,29 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/rounded_button_background</item>
-        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColor">@color/colorLight</item>
         <item name="android:stateListAnimator">@animator/button_elevation_animator</item>
+        <item name="android:elevation">@dimen/primary_elevation</item>
         <item name="android:textSize">15sp</item>
         <item name="android:clickable">true</item>
+        <item name="android:letterSpacing">0.02</item>
         <item name="android:paddingHorizontal" tools:targetApi="o">16dp</item>
         <item name="android:paddingVertical" tools:targetApi="o">10dp</item>
+    </style>
+    
+    <style name="ActionButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/action_button_height</item>
+        <item name="android:translationZ">@dimen/zero</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:elevation">@dimen/zero</item>
+        <item name="android:background">@drawable/action_button_background</item>
+        <item name="android:textColor">@color/colorAction</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/action_button_horizontal_padding</item>
     </style>
     
     
@@ -138,5 +175,5 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@color/colorPrimary</item>
     </style>
-
+    
 </resources>

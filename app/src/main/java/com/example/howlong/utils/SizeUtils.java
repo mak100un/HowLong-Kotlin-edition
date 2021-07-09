@@ -1,10 +1,10 @@
-package com.example.howlong;
+package com.example.howlong.utils;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.TypedValue;
 
-public class Utils {
+public class SizeUtils {
 
     public static int dpToPx(float dp, Context context) {
         return dpToPx(dp, context.getResources());

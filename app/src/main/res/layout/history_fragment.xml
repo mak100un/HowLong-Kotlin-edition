@@ -10,12 +10,12 @@
             android:id="@+id/history_swipe_refresh_layout"
             style="@style/MatchParentTheme"
             android:layout_marginBottom="@dimen/bottom_sheet_header_height">
-    
+        
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/history_recycler"
-                android:scrollbars="vertical"
                 style="@style/MatchParentTheme"
-                tools:itemCount="200"/>
+                android:scrollbars="vertical"
+                tools:itemCount="200" />
     
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     
@@ -25,8 +25,7 @@
     
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_record_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/WrapContentTheme"
             android:layout_marginHorizontal="@dimen/horizontal_padding"
             android:layout_marginBottom="@dimen/fab_bottom_margin"
             android:clickable="true"
@@ -37,6 +36,7 @@
             app:layout_anchor="@id/history_recycler"
             app:layout_anchorGravity="end|bottom"
             app:pressedTranslationZ="@dimen/vertical_margin"
+            app:tint="@color/colorLight"
             app:rippleColor="@color/colorLight" />
     
     <include layout="@layout/history_bottom_sheet" />

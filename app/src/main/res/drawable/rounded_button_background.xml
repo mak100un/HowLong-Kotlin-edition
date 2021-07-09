@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <inset xmlns:android="http://schemas.android.com/apk/res/android">
-    <ripple android:color="@android:color/white">
+    <ripple android:color="@color/colorLight">
         <item>
             <shape
                     android:padding="@dimen/button_content_padding"

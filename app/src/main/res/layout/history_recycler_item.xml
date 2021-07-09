@@ -3,7 +3,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         style="@style/HeightWrapContentTheme"
         android:orientation="vertical"
-        android:background="@drawable/history_record_background"
+        android:background="@drawable/ripple_white_background"
         android:clickable="true">
     
     <com.example.howlong.widgets.LightFontTextView

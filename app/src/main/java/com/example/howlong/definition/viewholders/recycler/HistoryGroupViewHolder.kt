@@ -7,5 +7,5 @@ import com.example.howlong.R
 
 class HistoryGroupViewHolder(view: View): RecyclerView.ViewHolder(view)
 {
-    val groupHeaderTextView: TextView = view.findViewById(R.id.group_header_text)
+    val groupHeaderTextView: TextView = view.findViewById(R.id.records_group_header_text)
 }

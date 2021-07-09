@@ -8,14 +8,16 @@ import android.widget.ListView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import com.example.howlong.R
 import com.example.howlong.definition.adapters.MenuItemAdapter
 import com.example.howlong.definition.enums.MenuItemType
 import com.example.howlong.definition.items.MenuItem
+import com.example.howlong.fragments.base.BaseFragment
 import com.example.howlong.viewmodels.menu.MenuViewModel
 
 
-class MenuFragment : Fragment() {
+class MenuFragment : BaseFragment() {
 
     companion object {
         fun newInstance() = MenuFragment()
@@ -23,16 +25,9 @@ class MenuFragment : Fragment() {
 
     private lateinit var viewModel: MenuViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.menu_fragment, container, false)
-    }
+    override val fragmentRes: Int = R.layout.menu_fragment
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    override fun initFragment(view: View) {
         val menuItems = ArrayList<MenuItem>()
         for(day in MenuItemType.values())
             menuItems.add(MenuItem(day))
@@ -40,13 +35,13 @@ class MenuFragment : Fragment() {
         val listView: ListView = view.findViewById(R.id.menu_list)
         listView.addHeaderView(View.inflate(context, R.layout.menu_header, null), "Header", false)
 
-        listView.adapter = MenuItemAdapter(context!!, menuItems) {menuType: MenuItemType ->
-            Toast.makeText(
-            context,
-            "Был выбран пункт: $menuType",
-            Toast.LENGTH_SHORT
-        ).show()}
-
+        listView.adapter = MenuItemAdapter(context!!, menuItems) {view: View, menuType: MenuItemType ->
+            when(menuType)
+            {
+                MenuItemType.ActiveRecord -> view.findNavController().navigate(R.id.action_menuFragment_to_recordFragment)
+                MenuItemType.History -> view.findNavController().navigate(R.id.action_menuFragment_to_historyFragment)
+                MenuItemType.Settings -> view.findNavController().navigate(R.id.action_menuFragment_to_settingsFragment)
+            }}
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -23,18 +24,17 @@ import com.example.howlong.definition.items.HistoryStatistic
 import com.example.howlong.definition.items.LoadingItem
 import com.example.howlong.definition.items.base.recycler.BaseRecyclerElement
 import com.example.howlong.definition.listeners.RecyclerPaginationListener
+import com.example.howlong.fragments.base.BaseFragment
 import com.example.howlong.viewmodels.history.HistoryViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.*
-import java.lang.Exception
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
-import kotlin.coroutines.CoroutineContext
 
 
-class HistoryFragment : Fragment() {
+class HistoryFragment : BaseFragment() {
 
     companion object {
         fun newInstance() = HistoryFragment()
@@ -43,41 +43,46 @@ class HistoryFragment : Fragment() {
 
     private lateinit var viewModel: HistoryViewModel
     private lateinit var addRecordButton: FloatingActionButton
-    private var lastRecordDate: Calendar = Calendar.getInstance()
+    private var lastRecordDate: Calendar = GregorianCalendar.getInstance()
     private var records: ArrayList<BaseRecyclerElement> = ArrayList()
     private val random = Random()
     private var loadingMoreJob: Job? = null
 
+    override val fragmentRes: Int = R.layout.history_fragment
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.history_fragment, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    override fun initFragment(view: View) {
         addRecordButton = view.findViewById(R.id.add_record_button)
         initHistoryRecycler(view)
         initBottomSheet(view)
     }
 
+    override fun onDestroyView()
+    {
+        loadingMoreJob?.cancel()
+        loadingMoreJob = null
+        super.onDestroyView()
+    }
+
     private fun initBottomSheet(view: View) {
         val statisticsItems = ArrayList<HistoryStatistic>()
         for(statisticType in HistoryStatisticType.values())
-            statisticsItems.add(HistoryStatistic(statisticType, when (statisticType) {
-                HistoryStatisticType.Recycling -> {
-                    5
-                }
-                HistoryStatisticType.Flaw -> {
-                    3
-                }
-                HistoryStatisticType.All -> {
-                    8
-                }
-            }))
+        {
+            statisticsItems.add(
+                HistoryStatistic(
+                    statisticType, when (statisticType) {
+                        HistoryStatisticType.Recycling -> {
+                            5
+                        }
+                        HistoryStatisticType.Flaw -> {
+                            3
+                        }
+                        HistoryStatisticType.All -> {
+                            8
+                        }
+                    }
+                )
+            )
+        }
 
         val statisticsListView: ListView = view.findViewById(R.id.statistics_list)
         statisticsListView.addHeaderView(View.inflate(context, R.layout.history_bottom_sheet_header, null), "Header", false)
@@ -109,15 +114,11 @@ class HistoryFragment : Fragment() {
                     BottomSheetBehavior.STATE_COLLAPSED ->
                     {
                         if (!addRecordButton.isShown)
-                        {
                             addRecordButton.show()
-                        }
                     }
                     BottomSheetBehavior.STATE_DRAGGING -> {
                         if (addRecordButton.isShown)
-                        {
                             addRecordButton.hide()
-                        }
                     }
                 }
             }
@@ -140,7 +141,10 @@ class HistoryFragment : Fragment() {
 
         addRecordsPage(true)
 
-        val adapter = HistoryAdapter(context!!, records)
+        val adapter = HistoryAdapter(context!!, records) { view: View, record: TimeRecord ->
+            val action = HistoryFragmentDirections.actionHistoryFragmentToRecordFragment()
+            action.record = record
+            view.findNavController().navigate(action) }
         recyclerView.adapter = adapter
 
 
@@ -154,10 +158,11 @@ class HistoryFragment : Fragment() {
                 {
                     loadingMoreJob?.cancel()
                     loadingMoreJob?.join()
-                    lastRecordDate = Calendar.getInstance()
+                    loadingMoreJob = null
+                    lastRecordDate = GregorianCalendar.getInstance()
                     adapter.clear()
                 }
-                delay(2500)
+                delay(1500)
                 withContext(Dispatchers.Main)
                 {
                     addRecordsPage(true)
@@ -167,44 +172,37 @@ class HistoryFragment : Fragment() {
             }
         }
 
-        recyclerView.setOnScrollListener(object : RecyclerPaginationListener(layoutManager, 5,
+        recyclerView.setOnScrollListener(object : RecyclerPaginationListener(layoutManager, 50,
             { _: RecyclerView, _: Int, dy: Int ->
                 run {
                     if (dy > 0
-                        && addRecordButton.isShown
-                    ) {
+                        && addRecordButton.isShown)
                         addRecordButton.hide()
-                    } else if (dy < 0
-                        && !addRecordButton.isShown
-                    ) {
+                    else if (dy < 0
+                        && !addRecordButton.isShown)
                         addRecordButton.show()
-                    }
                 }
             }
         )
         {
-            override fun needLoadMore(): Boolean {
+            override fun onNeedLoadMore(): Boolean {
                 return !swipeRefreshLayout.isRefreshing &&
                         loadingMoreJob?.isActive != true
             }
 
-            override fun loadMore()
+            override fun onLoadMore()
             {
                 loadingMoreJob = GlobalScope.launch {
                     withContext(Dispatchers.Main)
                     {
                         adapter.addElement(LoadingItem())
                     }
-                    delay(2500)
+                    delay(1500)
                     withContext(Dispatchers.Main)
                     {
-                        val loadingItem = records.firstOrNull { element -> element is LoadingItem }
-                        if (loadingItem != null)
-                        {
-                            records.remove(loadingItem!!)
+                        records.firstOrNull { element -> element is LoadingItem }?.let { records.remove(it)
                             addRecordsPage()
-                            adapter.notifyDataSetChanged()
-                        }
+                            adapter.notifyDataSetChanged() }
                     }
                 }
             }
@@ -216,9 +214,8 @@ class HistoryFragment : Fragment() {
     {
         if (addStartHeader &&
             lastRecordDate.get(Calendar.DATE) != 1)
-        {
             records.add(HistoryGroupItem(GregorianCalendar(lastRecordDate.get(Calendar.YEAR), lastRecordDate.get(Calendar.MONTH), 1), HistoryGroupingType.Month))
-        }
+
         var addedDay = 0
 
         for(year in (lastRecordDate.get(Calendar.YEAR))..Int.MAX_VALUE)
@@ -231,9 +228,7 @@ class HistoryFragment : Fragment() {
                     lastRecordDate.add(Calendar.DAY_OF_YEAR, 1)
 
                     if (day == 1)
-                    {
                         records.add(HistoryGroupItem(GregorianCalendar(year, month, day), HistoryGroupingType.Month))
-                    }
 
                     val startHour = random.nextInt(22)
                     val startMinutes = random.nextInt(59)
@@ -248,10 +243,8 @@ class HistoryFragment : Fragment() {
 
                     records.add(TimeRecord(startDate, endDate, (endDate.time.time - startDate.time.time) - TimeUnit.HOURS.toMillis(8)))
 
-                    if (addedDay == 15)
-                    {
+                    if (addedDay == 100)
                         return
-                    }
                 }
             }
         }

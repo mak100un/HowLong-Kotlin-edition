@@ -5,11 +5,11 @@
         android:orientation="vertical">
     
     <com.example.howlong.widgets.LightFontTextView
-            android:id="@+id/group_header_text"
+            android:id="@+id/records_group_header_text"
             android:layout_marginVertical="@dimen/vertical_spacing"
             android:layout_marginHorizontal="@dimen/menu_item_horizontal_margin"
             style="@style/GroupHeaderTextViewStyle"
-            tools:text="@string/march_2021" />
+            tools:text="Март, 2021" />
     
     <View style="@style/HorizontalDividerStyle"/>
     

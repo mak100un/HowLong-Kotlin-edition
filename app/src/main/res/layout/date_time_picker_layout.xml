@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/HeightWrapContentTheme"
+        android:orientation="horizontal">
+    
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/date_picker_input_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:errorEnabled="true"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        
+        <com.example.howlong.widgets.pickers.DatePickerEditText
+                android:id="@+id/date_picker"
+                style="@style/HeightWrapContentTheme"
+                android:hint="@string/date"/>
+    
+    </com.google.android.material.textfield.TextInputLayout>
+    
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/time_picker_input_layout"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            app:errorEnabled="true"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/horizontal_padding"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        
+        <com.example.howlong.widgets.pickers.TimePickerEditText
+                android:id="@+id/time_picker"
+                style="@style/HeightWrapContentTheme"
+                android:hint="@string/time" />
+    
+    </com.google.android.material.textfield.TextInputLayout>
+    
+</LinearLayout>

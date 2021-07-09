@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/MatchParentTheme"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".fragments.settings.SettingsFragment"
+        android:orientation="vertical">
+    
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/settings_recycler"
+            android:scrollbars="vertical"
+            style="@style/MatchParentTheme"
+            android:layout_height="@dimen/zero"
+            android:layout_weight="1"
+            tools:itemCount="200"/>
+    
+</LinearLayout>
