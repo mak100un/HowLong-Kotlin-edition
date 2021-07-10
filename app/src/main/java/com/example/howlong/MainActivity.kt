@@ -4,23 +4,22 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.view.Menu
 import android.view.MotionEvent
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.howlong.fragments.record.RecordFragment
-import com.example.howlong.fragments.settings.SettingsFragment
+import androidx.navigation.fragment.NavHostFragment
 import com.example.howlong.utils.KeyboardUtils
-import com.example.howlong.viewmodels.settings.SettingsViewModel
 import com.example.howlong.widgets.FocusableEditText
 
-class MainActivity : AppCompatActivity() {
 
+class MainActivity : AppCompatActivity() {
     private val currentFocusRect: Rect = Rect()
+    private lateinit var navHostFragment: NavHostFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        setSupportActionBar(findViewById(R.id.toolbar))
-        supportActionBar?.setHomeButtonEnabled(true)
+        navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -53,7 +52,26 @@ class MainActivity : AppCompatActivity() {
                 previousFocus.clearFocus()
             }
         }
-
         return  result
+    }
+
+    override fun onBackPressed() {
+        if (navHostFragment.childFragmentManager?.backStackEntryCount > 0)
+            super.onBackPressed()
+        else
+        {
+            AlertDialog.Builder(this)
+                .setTitle(R.string.exit_alert_title)
+                .setMessage(R.string.exit_alert_message)
+                .setPositiveButton(R.string.yes_close
+                ) { dialog, _ ->
+                    dialog.dismiss()
+                    System.runFinalizersOnExit(true)
+                    super.onBackPressed()
+                }
+                .setNegativeButton(R.string.no, null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show()
+        }
     }
 }

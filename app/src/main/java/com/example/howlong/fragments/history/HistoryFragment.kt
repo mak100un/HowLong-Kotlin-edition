@@ -1,13 +1,10 @@
 package com.example.howlong.fragments.history
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ListView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,7 +21,7 @@ import com.example.howlong.definition.items.HistoryStatistic
 import com.example.howlong.definition.items.LoadingItem
 import com.example.howlong.definition.items.base.recycler.BaseRecyclerElement
 import com.example.howlong.definition.listeners.RecyclerPaginationListener
-import com.example.howlong.fragments.base.BaseFragment
+import com.example.howlong.fragments.base.BaseFragmentWithLogo
 import com.example.howlong.viewmodels.history.HistoryViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -34,7 +31,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
 
-class HistoryFragment : BaseFragment() {
+class HistoryFragment : BaseFragmentWithLogo() {
 
     companion object {
         fun newInstance() = HistoryFragment()
@@ -52,6 +49,7 @@ class HistoryFragment : BaseFragment() {
 
     override fun initFragment(view: View) {
         addRecordButton = view.findViewById(R.id.add_record_button)
+        addRecordButton.setOnClickListener { view: View -> view.findNavController().navigate(R.id.action_historyFragment_to_recordFragment) }
         initHistoryRecycler(view)
         initBottomSheet(view)
     }

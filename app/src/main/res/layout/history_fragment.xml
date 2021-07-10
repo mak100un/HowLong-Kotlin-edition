@@ -1,44 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        style="@style/MatchParentTheme"
-        android:background="@color/colorBackground"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        style="@style/MatchParentTheme">
     
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/history_swipe_refresh_layout"
-            style="@style/MatchParentTheme"
-            android:layout_marginBottom="@dimen/bottom_sheet_header_height">
+    <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            style="@style/ZeroHeightTheme"
+            android:background="@color/colorBackground"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
         
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/history_recycler"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/history_swipe_refresh_layout"
                 style="@style/MatchParentTheme"
-                android:scrollbars="vertical"
-                tools:itemCount="200" />
+                android:layout_marginBottom="@dimen/bottom_sheet_header_height">
+            
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/history_recycler"
+                    style="@style/MatchParentTheme"
+                    android:scrollbars="vertical"
+                    tools:itemCount="200" />
+        
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        
+        <com.example.howlong.widgets.DimView
+                android:id="@+id/dim_view"
+                style="@style/MatchParentTheme" />
+        
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_record_button"
+                style="@style/WrapContentTheme"
+                android:layout_marginHorizontal="@dimen/horizontal_padding"
+                android:layout_marginBottom="@dimen/fab_bottom_margin"
+                android:clickable="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_plus"
+                app:backgroundTint="@color/colorSecondary"
+                app:elevation="@dimen/primary_elevation"
+                app:layout_anchor="@id/history_recycler"
+                app:layout_anchorGravity="end|bottom"
+                app:pressedTranslationZ="@dimen/vertical_margin"
+                app:rippleColor="@color/colorLight"
+                app:tint="@color/colorLight" />
+        
+        <include layout="@layout/history_bottom_sheet" />
     
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
     
-    <com.example.howlong.widgets.DimView
-            android:id="@+id/dim_view"
-            style="@style/MatchParentTheme" />
-    
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_record_button"
-            style="@style/WrapContentTheme"
-            android:layout_marginHorizontal="@dimen/horizontal_padding"
-            android:layout_marginBottom="@dimen/fab_bottom_margin"
-            android:clickable="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/img_plus"
-            app:backgroundTint="@color/colorSecondary"
-            app:elevation="@dimen/primary_elevation"
-            app:layout_anchor="@id/history_recycler"
-            app:layout_anchorGravity="end|bottom"
-            app:pressedTranslationZ="@dimen/vertical_margin"
-            app:tint="@color/colorLight"
-            app:rippleColor="@color/colorLight" />
-    
-    <include layout="@layout/history_bottom_sheet" />
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/primary_elevation"
+            android:background="@drawable/toolbar_shadow"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

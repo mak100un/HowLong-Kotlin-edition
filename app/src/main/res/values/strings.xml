@@ -42,6 +42,10 @@
     <string name="main">Основное</string>
     <string name="other">Остальное</string>
     <string name="about">О приложении</string>
+    <string name="exit_alert_title">Попытка выхода!</string>
+    <string name="exit_alert_message">Вы уверены, что хотите закрыть приложение?</string>
+    <string name="no">Нет</string>
+    <string name="yes_close">Да, закрыть</string>
     
     <string-array name="grouping_types">
         <item>по дням</item>

@@ -3,27 +3,18 @@ package com.example.howlong.fragments.record
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.os.Bundle
-import android.util.Log
-import android.util.Log.INFO
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import android.widget.Button
-import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.howlong.R
-import com.example.howlong.definition.adapters.MenuItemAdapter
 import com.example.howlong.definition.dtos.TimeRecord
-import com.example.howlong.definition.enums.MenuItemType
-import com.example.howlong.definition.items.MenuItem
 import com.example.howlong.definition.listeners.OnDateTimeChangedListener
-import com.example.howlong.fragments.base.BaseFragment
+import com.example.howlong.fragments.base.BaseFragmentWithLogo
 import com.example.howlong.utils.TimeFormatterUtils
 import com.example.howlong.viewmodels.record.RecordViewModel
 import com.example.howlong.widgets.CircularProgressBar
@@ -34,7 +25,7 @@ import java.util.GregorianCalendar.getInstance
 import java.util.concurrent.TimeUnit
 
 
-class RecordFragment : BaseFragment() {
+class RecordFragment : BaseFragmentWithLogo() {
 
     companion object {
         fun newInstance() = RecordFragment()

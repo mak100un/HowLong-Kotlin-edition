@@ -7,31 +7,11 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
     
-    <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
-    
-    <androidx.constraintlayout.widget.ConstraintLayout style="@style/MatchParentTheme">
-        
-        <fragment
-                android:id="@+id/fragment"
-                android:name="androidx.navigation.fragment.NavHostFragment"
-                style="@style/MatchParentTheme"
-                app:defaultNavHost="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:navGraph="@navigation/main_navigation" />
-        
-        <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/primary_elevation"
-                android:background="@drawable/toolbar_shadow"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-    
-    
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <fragment
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            style="@style/MatchParentTheme"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/main_navigation" />
+
 </LinearLayout>
