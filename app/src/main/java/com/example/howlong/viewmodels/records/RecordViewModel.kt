@@ -1,4 +1,4 @@
-package com.example.howlong.viewmodels.record
+package com.example.howlong.viewmodels.records
 
 import androidx.lifecycle.ViewModel
 

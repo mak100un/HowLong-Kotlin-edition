@@ -6,14 +6,14 @@
         android:orientation="vertical"
         android:background="@drawable/ripple_white_background">
     
-    <com.example.howlong.widgets.LightFontTextView
+    <com.example.howlong.widgets.textviews.LightFontTextView
             android:id="@+id/setting_title"
             android:layout_marginTop="@dimen/vertical_margin"
             android:layout_marginHorizontal="@dimen/horizontal_padding"
             style="@style/DescriptionTextViewStyle"
             tools:text="Заголовок"/>
     
-    <com.example.howlong.widgets.LightFontTextView
+    <com.example.howlong.widgets.textviews.LightFontTextView
             android:id="@+id/setting_description"
             android:layout_marginTop="@dimen/vertical_spacing"
             android:layout_marginBottom="@dimen/vertical_margin"

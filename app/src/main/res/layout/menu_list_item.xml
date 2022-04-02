@@ -41,7 +41,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
             
             
-            <com.example.howlong.widgets.RegularFontTextView
+            <com.example.howlong.widgets.textviews.RegularFontTextView
                     android:id="@+id/menu_title"
                     style="@style/MenuItemTextViewStyle"
                     app:layout_constraintBottom_toBottomOf="parent"

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        style="@style/HeightWrapContentTheme">
+
+    <LinearLayout
+            style="@style/HeightWrapContentTheme">
+    
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/days_input_layout"
+                android:layout_marginTop="@dimen/vertical_spacing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:errorEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        
+            <com.example.howlong.widgets.edittexts.FocusableEditText
+                    android:id="@+id/days_edit_text"
+                    android:inputType="number"
+                    style="@style/HeightWrapContentTheme"
+                    android:hint="@string/days"/>
+    
+        </com.google.android.material.textfield.TextInputLayout>
+    
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/hours_input_layout"
+                android:layout_marginTop="@dimen/vertical_spacing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/horizontal_padding"
+                app:errorEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        
+            <com.example.howlong.widgets.edittexts.FocusableEditText
+                    android:id="@+id/hours_edit_text"
+                    android:inputType="number"
+                    style="@style/HeightWrapContentTheme"
+                    android:hint="@string/hours"/>
+    
+        </com.google.android.material.textfield.TextInputLayout>
+        
+    </LinearLayout>
+    
+    <LinearLayout
+            android:layout_marginTop="@dimen/vertical_spacing"
+            style="@style/HeightWrapContentTheme">
+        
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/minutes_input_layout"
+                android:layout_marginTop="@dimen/vertical_spacing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:errorEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            
+            <com.example.howlong.widgets.edittexts.FocusableEditText
+                    android:id="@+id/minutes_edit_text"
+                    android:inputType="number"
+                    style="@style/HeightWrapContentTheme"
+                    android:hint="@string/minutes"/>
+        
+        </com.google.android.material.textfield.TextInputLayout>
+        
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/seconds_input_layout"
+                android:layout_marginTop="@dimen/vertical_spacing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/horizontal_padding"
+                app:errorEnabled="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            
+            <com.example.howlong.widgets.edittexts.FocusableEditText
+                    android:id="@+id/seconds_edit_text"
+                    android:inputType="number"
+                    style="@style/HeightWrapContentTheme"
+                    android:hint="@string/seconds"/>
+        
+        </com.google.android.material.textfield.TextInputLayout>
+    
+    </LinearLayout>
+    
+</LinearLayout>

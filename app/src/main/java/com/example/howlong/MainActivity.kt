@@ -8,7 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.example.howlong.utils.KeyboardUtils
-import com.example.howlong.widgets.FocusableEditText
+import com.example.howlong.widgets.edittexts.FocusableEditText
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,15 +22,11 @@ class MainActivity : AppCompatActivity() {
         navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_actions, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
     override fun dispatchTouchEvent(event: MotionEvent): Boolean
     {
         if (event.action != MotionEvent.ACTION_UP ||
-            currentFocus !is FocusableEditText)
+            currentFocus !is FocusableEditText
+        )
             return super.dispatchTouchEvent(event)
 
         val previousFocus = currentFocus as FocusableEditText

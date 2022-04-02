@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/menu"
         style="@style/MatchParentTheme"
         tools:context=".fragments.menu.MenuFragment">
     
@@ -25,7 +24,7 @@
             android:listSelector="@android:color/transparent"
             tools:background="@color/colorAccent"/>
     
-    <com.example.howlong.widgets.LightFontTextView
+    <com.example.howlong.widgets.textviews.LightFontTextView
             android:id="@+id/current_day_text_view"
             style="@style/DescriptionTextViewStyle"
             android:gravity="bottom|end"
@@ -35,10 +34,9 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginBottom="@dimen/vertical_margin"/>
     
-    <View
+    <com.example.howlong.widgets.ToolbarShadowView
             android:layout_width="match_parent"
             android:layout_height="@dimen/primary_elevation"
-            android:background="@drawable/toolbar_shadow"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar" />

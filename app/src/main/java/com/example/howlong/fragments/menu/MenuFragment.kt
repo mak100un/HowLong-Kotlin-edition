@@ -12,7 +12,7 @@ import com.example.howlong.definition.items.MenuItem
 import com.example.howlong.fragments.base.BaseFragment
 import com.example.howlong.utils.TimeFormatterUtils
 import com.example.howlong.viewmodels.menu.MenuViewModel
-import com.example.howlong.widgets.LightFontTextView
+import com.example.howlong.widgets.textviews.LightFontTextView
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -24,7 +24,7 @@ class MenuFragment : BaseFragment() {
         fun newInstance() = MenuFragment()
     }
 
-    private val dateFormatter = SimpleDateFormat("d.MM.yyyy, ", Locale("ru"))
+    private val dateFormatter = SimpleDateFormat("dd.MM.yyyy, ", Locale("ru"))
 
     private lateinit var viewModel: MenuViewModel
     private lateinit var currentDayTextView: LightFontTextView
@@ -47,12 +47,12 @@ class MenuFragment : BaseFragment() {
         listView.addHeaderView(View.inflate(context, R.layout.menu_header, null), "Header", false)
 
         listView.adapter = MenuItemAdapter(context!!, menuItems) {view: View, menuType: MenuItemType ->
-            when(menuType)
+            view.findNavController().navigate(when(menuType)
             {
-                MenuItemType.ActiveRecord -> view.findNavController().navigate(R.id.action_menuFragment_to_recordFragment)
-                MenuItemType.History -> view.findNavController().navigate(R.id.action_menuFragment_to_historyFragment)
-                MenuItemType.Settings -> view.findNavController().navigate(R.id.action_menuFragment_to_settingsFragment)
-            }}
+                MenuItemType.ActiveRecord -> R.id.action_menuFragment_to_recordFragment
+                MenuItemType.History -> R.id.action_menuFragment_to_historyFragment
+                MenuItemType.Settings -> R.id.action_menuFragment_to_settingsFragment
+            })}
     }
 
     override fun onResume() {

@@ -20,6 +20,8 @@ class DateTimePicker: LinearLayout {
     private var datePickerInputLayout: TextInputLayout
     private var timePickerInputLayout: TextInputLayout
     private var dateTimeBackField: Calendar? = null
+    private val dateNotSelectedError: String = resources.getString(R.string.date_not_selected)
+    private val timeNotSelectedError: String = resources.getString(R.string.time_not_selected)
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -110,12 +112,12 @@ class DateTimePicker: LinearLayout {
             {
                 if (datePicker.dateTime == null)
                 {
-                    datePickerInputLayout.error = "Дата не выбрана"
+                    datePickerInputLayout.error = dateNotSelectedError
                 }
 
                 if (timePicker.dateTime == null)
                 {
-                    timePickerInputLayout.error = "Время не выбрано"
+                    timePickerInputLayout.error = timeNotSelectedError
                 }
             }
             delay(2000)

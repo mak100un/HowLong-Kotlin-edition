@@ -10,7 +10,7 @@ class HistoryStatistic(val statisticType: HistoryStatisticType, var recordsCount
 {
     val placeholderTextRes: Int = when (statisticType) {
         HistoryStatisticType.Recycling -> R.string.recyclings
-        HistoryStatisticType.Flaw -> R.string.flaws
+        HistoryStatisticType.Flaw -> R.string.days_off
         HistoryStatisticType.All -> R.string.all_records
     }
 

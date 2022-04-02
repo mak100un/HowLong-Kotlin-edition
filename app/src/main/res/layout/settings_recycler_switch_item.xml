@@ -18,12 +18,12 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
             
-            <com.example.howlong.widgets.LightFontTextView
+            <com.example.howlong.widgets.textviews.LightFontTextView
                     android:id="@+id/setting_title"
                     style="@style/DescriptionTextViewStyle"
                     tools:text="Заголовок"/>
     
-            <com.example.howlong.widgets.LightFontTextView
+            <com.example.howlong.widgets.textviews.LightFontTextView
                     android:id="@+id/setting_description"
                     android:layout_marginTop="@dimen/vertical_spacing"
                     style="@style/SettingDescriptionTextViewStyle"

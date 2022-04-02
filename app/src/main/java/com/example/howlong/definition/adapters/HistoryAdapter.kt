@@ -3,14 +3,11 @@ package com.example.howlong.definition.adapters
 import android.content.Context
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.howlong.R
 import com.example.howlong.definition.adapters.base.recycler.BaseGroupedHeaderedRecyclerViewAdapter
 import com.example.howlong.definition.dtos.TimeRecord
 import com.example.howlong.definition.enums.HistoryGroupingType
-import com.example.howlong.definition.enums.MenuItemType
 import com.example.howlong.definition.items.HistoryGroupItem
 import com.example.howlong.definition.items.LoadingItem
 import com.example.howlong.definition.items.base.recycler.BaseRecyclerElement
@@ -28,7 +25,8 @@ class HistoryAdapter
 (
     context: Context,
     elements: ArrayList<BaseRecyclerElement>,
-    val tapAction: (View, TimeRecord) -> Unit
+    private val tapItemAction: (View, TimeRecord) -> Unit,
+    private val tapGroupAction: ((View, HistoryGroupItem) -> Unit)? = null
 ) :
     BaseGroupedHeaderedRecyclerViewAdapter
     <
@@ -76,6 +74,11 @@ class HistoryAdapter
             HistoryGroupingType.Month -> TimeFormatterUtils.GetMonthName(element.date.get(Calendar.MONTH)) + headerDateFormatter.format(element.date.time)
             else -> TODO("Not yet implemented")
         }
+
+        tapGroupAction?.let {
+            RxView.clicks(holder.itemView)
+            .throttleFirst(250, TimeUnit.MILLISECONDS)
+            .subscribe { it(holder.itemView, element) } }
     }
 
     override fun onBindItemViewHolder(
@@ -97,14 +100,14 @@ class HistoryAdapter
             }
             else ->
             {
-                holder.recordResultPlaceholderView.setText(R.string.flaw)
+                holder.recordResultPlaceholderView.setText(R.string.day_off)
                 holder.recordResultTextView.setTextColor(ContextCompat.getColor(context!!, R.color.colorRed))
             }
         }
 
         RxView.clicks(holder.itemView)
             .throttleFirst(250, TimeUnit.MILLISECONDS)
-            .subscribe { tapAction(holder.itemView, element) }
+            .subscribe { tapItemAction(holder.itemView, element) }
     }
 
     override fun onBindFooterViewHolder(

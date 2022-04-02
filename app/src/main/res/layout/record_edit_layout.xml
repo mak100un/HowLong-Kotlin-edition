@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.howlong.widgets.DialogScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/MatchParentTheme">
+    
+    <LinearLayout
+            style="@style/MatchParentTheme"
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/horizontal_padding">
+        
+        <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/vertical_spacing">
+            
+            <com.example.howlong.widgets.edittexts.FocusableEditText
+                    android:id="@+id/name_edit_text"
+                    style="@style/HeightWrapContentTheme"
+                    android:hint="@string/name"
+                    android:inputType="textCapSentences|textAutoCorrect" />
+        
+        </com.google.android.material.textfield.TextInputLayout>
+        
+        <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/vertical_spacing">
+            
+            <com.example.howlong.widgets.edittexts.FocusableEditText
+                    android:id="@+id/description_edit_text"
+                    style="@style/HeightWrapContentTheme"
+                    android:hint="@string/description"
+                    android:inputType="textCapSentences|textAutoCorrect|textMultiLine"
+                    android:minLines="4" />
+        
+        </com.google.android.material.textfield.TextInputLayout>
+        
+        <com.example.howlong.widgets.textviews.RegularFontTextView
+                style="@style/DescriptionTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:text="@string/group" />
+        
+        <RadioGroup
+                android:id="@+id/group_type_radio_group"
+                style="@style/HeightWrapContentTheme"
+                android:layout_marginTop="@dimen/vertical_spacing"
+                android:orientation="vertical">
+            
+            <LinearLayout style="@style/HeightWrapContentTheme">
+                
+                <RadioButton
+                        android:id="@+id/new_group_radio_button"
+                        style="@style/WrapContentTheme"
+                        android:layout_marginRight="@dimen/vertical_spacing"
+                        android:gravity="center_vertical" />
+                
+                <com.example.howlong.widgets.textviews.LightFontTextView
+                        style="@style/Base.TextAppearance.AppCompat.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/new_group"
+                        android:textColor="@color/colorPrimaryDark" />
+            
+            </LinearLayout>
+            
+            
+            <LinearLayout
+                    style="@style/HeightWrapContentTheme"
+                    android:layout_marginTop="@dimen/vertical_spacing">
+                
+                <RadioButton
+                        android:id="@+id/existed_group_radio_button"
+                        style="@style/WrapContentTheme"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/vertical_spacing" />
+                
+                <com.example.howlong.widgets.textviews.LightFontAutoCompleteTextView
+                        android:id="@+id/selected_group_auto_complete_view"
+                        style="@style/Base.TextAppearance.AppCompat.Caption"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:completionHint="@string/enter_name"
+                        android:completionThreshold="1"
+                        tools:completionHint="@string/enter_name" />
+            
+            </LinearLayout>
+        
+        </RadioGroup>
+        
+        
+        <com.example.howlong.widgets.textviews.RegularFontTextView
+                style="@style/DescriptionTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/vertical_margin"
+                android:text="@string/recycling_days_off" />
+        
+        <com.example.howlong.widgets.RecyclingDayOffRadioGroup
+                style="@style/HeightWrapContentTheme"
+                android:layout_marginTop="@dimen/vertical_spacing"
+                android:orientation="vertical" />
+    
+    </LinearLayout>
+</com.example.howlong.widgets.DialogScrollView>

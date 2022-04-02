@@ -26,14 +26,14 @@
                 android:layout_marginHorizontal="@dimen/horizontal_padding"
                 android:orientation="horizontal">
             
-            <com.example.howlong.widgets.LightFontTextView
+            <com.example.howlong.widgets.textviews.LightFontTextView
                     style="@style/GroupHeaderTextViewStyle"
                     android:layout_width="0dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:text="@string/start" />
             
-            <com.example.howlong.widgets.BoldFontButton
+            <com.example.howlong.widgets.buttons.BoldFontButton
                     android:id="@+id/start_now_button"
                     style="@style/ActionButtonStyle"
                     android:layout_width="wrap_content"
@@ -64,7 +64,7 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
                     
-                    <com.example.howlong.widgets.LightFontTextView
+                    <com.example.howlong.widgets.textviews.LightFontTextView
                             android:id="@+id/today_total_timer_header"
                             style="@style/PrimaryBlueTextViewStyle"
                             android:text="@string/today_total"
@@ -95,14 +95,14 @@
                             app:layout_constraintRight_toRightOf="@id/today_total_timer_progressbar"
                             app:layout_constraintTop_toTopOf="@id/today_total_timer_progressbar">
                         
-                        <com.example.howlong.widgets.RegularFontTextView
+                        <com.example.howlong.widgets.textviews.RegularFontTextView
                                 android:id="@+id/today_total_timer_days_textview"
                                 style="@style/PrimaryBlueTextViewStyle"
                                 android:layout_gravity="center_horizontal"
                                 android:textSize="@dimen/total_timer_small_text_size"
                                 tools:text="1 д" />
                         
-                        <com.example.howlong.widgets.RegularFontTextView
+                        <com.example.howlong.widgets.textviews.RegularFontTextView
                                 android:id="@+id/today_total_timer_textview"
                                 style="@style/PrimaryBlueTextViewStyle"
                                 android:layout_gravity="center_horizontal"
@@ -111,7 +111,7 @@
                                 android:textSize="@dimen/total_timer_text_size"
                                 tools:text="@string/default_time" />
                         
-                        <com.example.howlong.widgets.RegularFontTextView
+                        <com.example.howlong.widgets.textviews.RegularFontTextView
                                 android:id="@+id/today_total_timer_hours_textview"
                                 style="@style/PrimaryBlueTextViewStyle"
                                 android:layout_gravity="center_horizontal"
@@ -145,13 +145,13 @@
                         app:layout_constraintRight_toRightOf="@id/current_timer_progressbar"
                         app:layout_constraintTop_toTopOf="@id/current_timer_progressbar">
                     
-                    <com.example.howlong.widgets.RegularFontTextView
+                    <com.example.howlong.widgets.textviews.RegularFontTextView
                             android:id="@+id/current_timer_days_textview"
                             style="@style/PrimaryBlueTextViewStyle"
                             android:layout_gravity="center_horizontal"
                             tools:text="1 д" />
                     
-                    <com.example.howlong.widgets.RegularFontTextView
+                    <com.example.howlong.widgets.textviews.RegularFontTextView
                             android:id="@+id/current_timer_textview"
                             style="@style/PrimaryBlueTextViewStyle"
                             android:layout_gravity="center_horizontal"
@@ -160,7 +160,7 @@
                             android:textSize="@dimen/large_text_size"
                             tools:text="@string/default_time" />
                     
-                    <com.example.howlong.widgets.RegularFontTextView
+                    <com.example.howlong.widgets.textviews.RegularFontTextView
                             android:id="@+id/current_timer_hours_textview"
                             style="@style/PrimaryBlueTextViewStyle"
                             android:layout_gravity="center_horizontal"
@@ -174,7 +174,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toRightOf="parent">
                     
-                    <com.example.howlong.widgets.LightFontTextView
+                    <com.example.howlong.widgets.textviews.LightFontTextView
                             android:id="@+id/whole_total_timer_header"
                             style="@style/PrimaryBlueTextViewStyle"
                             android:text="@string/whole_total"
@@ -205,14 +205,14 @@
                             app:layout_constraintRight_toRightOf="@id/whole_total_timer_progressbar"
                             app:layout_constraintTop_toTopOf="@id/whole_total_timer_progressbar">
                         
-                        <com.example.howlong.widgets.RegularFontTextView
+                        <com.example.howlong.widgets.textviews.RegularFontTextView
                                 android:id="@+id/whole_total_timer_days_textview"
                                 style="@style/PrimaryBlueTextViewStyle"
                                 android:layout_gravity="center_horizontal"
                                 android:textSize="@dimen/total_timer_small_text_size"
                                 tools:text="1 д" />
                         
-                        <com.example.howlong.widgets.RegularFontTextView
+                        <com.example.howlong.widgets.textviews.RegularFontTextView
                                 android:id="@+id/whole_total_timer_textview"
                                 style="@style/PrimaryBlueTextViewStyle"
                                 android:layout_gravity="center_horizontal"
@@ -221,7 +221,7 @@
                                 android:textSize="@dimen/total_timer_text_size"
                                 tools:text="@string/default_time" />
                         
-                        <com.example.howlong.widgets.RegularFontTextView
+                        <com.example.howlong.widgets.textviews.RegularFontTextView
                                 android:id="@+id/whole_total_timer_hours_textview"
                                 style="@style/PrimaryBlueTextViewStyle"
                                 android:layout_gravity="center_horizontal"
@@ -241,14 +241,14 @@
                 android:layout_marginTop="@dimen/vertical_margin"
                 android:orientation="horizontal">
             
-            <com.example.howlong.widgets.LightFontTextView
+            <com.example.howlong.widgets.textviews.LightFontTextView
                     style="@style/GroupHeaderTextViewStyle"
                     android:layout_width="0dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:text="@string/end" />
             
-            <com.example.howlong.widgets.BoldFontButton
+            <com.example.howlong.widgets.buttons.BoldFontButton
                     android:id="@+id/end_now_button"
                     style="@style/ActionButtonStyle"
                     android:layout_width="wrap_content"
@@ -265,7 +265,7 @@
                 android:layout_marginHorizontal="@dimen/horizontal_padding"
                 android:layout_marginBottom="@dimen/vertical_spacing" />
         
-        <com.example.howlong.widgets.RegularFontButton
+        <com.example.howlong.widgets.buttons.RegularFontButton
                 android:id="@+id/save_record_button"
                 style="@style/ButtonStyle"
                 android:layout_width="match_parent"
@@ -275,10 +275,9 @@
     
     </LinearLayout>
     
-    <View
+    <com.example.howlong.widgets.ToolbarShadowView
             android:layout_width="match_parent"
             android:layout_height="@dimen/primary_elevation"
-            android:background="@drawable/toolbar_shadow"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar" />

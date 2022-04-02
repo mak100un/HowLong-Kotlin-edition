@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/HeightWrapContentTheme"
+        android:orientation="vertical">
+    
+    <LinearLayout
+            style="@style/HeightWrapContentTheme"
+            android:orientation="vertical">
+        
+        <LinearLayout style="@style/HeightWrapContentTheme">
+            
+            <RadioButton
+                    android:id="@+id/specify_manually_radio_button"
+                    style="@style/WrapContentTheme"
+                    android:layout_marginRight="@dimen/vertical_spacing"
+                    android:gravity="center_vertical" />
+            
+            <com.example.howlong.widgets.textviews.LightFontTextView
+                    style="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/specify_manually"
+                    android:textColor="@color/colorPrimaryDark" />
+        
+        </LinearLayout>
+        
+        <com.example.howlong.widgets.TimeInputView
+                android:id="@+id/specify_manually_time_input_view"
+                style="@style/HeightWrapContentTheme"
+                android:layout_marginTop="@dimen/vertical_spacing" />
+        
+        <LinearLayout
+                style="@style/HeightWrapContentTheme"
+                android:layout_marginTop="@dimen/vertical_spacing"
+                android:orientation="horizontal">
+            
+            <com.example.howlong.widgets.textviews.LightFontTextView
+                    style="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:layout_width="@dimen/zero"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="@string/recycling_text"
+                    android:textColor="@color/colorPrimaryDark" />
+            
+            <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/recycling_switch"
+                    android:checked="true"
+                    style="@style/WrapContentTheme"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/vertical_spacing" />
+        
+        </LinearLayout>
+    
+    </LinearLayout>
+    
+    <LinearLayout
+            style="@style/HeightWrapContentTheme"
+            android:layout_marginTop="@dimen/vertical_spacing"
+            android:orientation="vertical">
+        
+        <LinearLayout style="@style/HeightWrapContentTheme">
+            
+            <RadioButton
+                    android:id="@+id/specify_norm_radio_button"
+                    style="@style/WrapContentTheme"
+                    android:layout_marginRight="@dimen/vertical_spacing"
+                    android:gravity="center_vertical" />
+            
+            <com.example.howlong.widgets.textviews.LightFontTextView
+                    style="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/specify_norm"
+                    android:textColor="@color/colorPrimaryDark" />
+        
+        </LinearLayout>
+        
+        <com.example.howlong.widgets.TimeInputView
+                android:id="@+id/specify_norm_time_input_view"
+                style="@style/HeightWrapContentTheme"
+                android:layout_marginTop="@dimen/vertical_spacing" />
+    
+    </LinearLayout>
+    
+    <LinearLayout
+            style="@style/HeightWrapContentTheme"
+            android:layout_marginTop="@dimen/vertical_spacing">
+        
+        <RadioButton
+                android:checked="true"
+                android:id="@+id/skip_recycling_radio_button"
+                style="@style/WrapContentTheme"
+                android:layout_marginRight="@dimen/vertical_spacing"
+                android:gravity="center_vertical" />
+        
+        <com.example.howlong.widgets.textviews.LightFontTextView
+                style="@style/Base.TextAppearance.AppCompat.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/skip"
+                android:textColor="@color/colorPrimaryDark" />
+    
+    </LinearLayout>
+
+</RadioGroup>

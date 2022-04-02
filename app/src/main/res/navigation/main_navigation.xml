@@ -59,5 +59,25 @@
                 app:exitAnim="@anim/nav_default_exit_anim"
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim"
                 app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+                android:id="@+id/action_historyFragment_to_groupFragment"
+                app:destination="@id/groupFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+            android:id="@+id/groupFragment"
+            android:name="com.example.howlong.fragments.groups.GroupFragment"
+            android:label="group_fragment"
+            tools:layout="@layout/group_fragment" >
+        <action
+                android:id="@+id/action_groupFragment_to_recordFragment"
+                app:destination="@id/recordFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 </navigation>

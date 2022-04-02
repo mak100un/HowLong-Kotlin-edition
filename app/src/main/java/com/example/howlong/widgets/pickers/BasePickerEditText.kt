@@ -7,7 +7,7 @@ import android.text.InputType
 import android.util.AttributeSet
 import android.view.MotionEvent
 import com.example.howlong.utils.KeyboardUtils
-import com.example.howlong.widgets.FocusableEditText
+import com.example.howlong.widgets.edittexts.FocusableEditText
 
 abstract class BasePickerEditText:
     FocusableEditText {

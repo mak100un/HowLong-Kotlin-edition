@@ -1,18 +1,23 @@
 <resources>
     <string name="app_name">HowLong</string>
     <string name="estimate">Оценить приложение</string>
+    <string name="edit">Редактировать</string>
+    <string name="delete">Удалить</string>
     <string name="history">История</string>
     <string name="settings">Настройки</string>
     <string name="active_record">Активная запись</string>
     <string name="record_period">Период:</string>
-    <string name="flaw">Недоработка:</string>
+    <string name="day_off">Отгул:</string>
     <string name="recycling">Переработка:</string>
-    <string name="flaws">Недоработок</string>
+    <string name="days_off">Отгулов</string>
     <string name="recyclings">Переработок</string>
     <string name="statistics">Статистика</string>
     <string name="all_records">Всего записей</string>
     <string name="grouping">Группировка</string>
+    <string name="group">Группа</string>
+    <string name="records">Записи</string>
     <string name="enabled">Вкл.</string>
+    <string name="new_group">Новая группа</string>
     <string name="disabled">Выкл.</string>
     <string name="date">Дата</string>
     <string name="time">Время</string>
@@ -21,7 +26,7 @@
     <string name="whole_total">Итого за все время:</string>
     <string name="end">Конец</string>
     <string name="now">СЕЙЧАС</string>
-    <string name="save">СОХРАНИТЬ</string>
+    <string name="save">Сохранить</string>
     <string name="default_time">00:00</string>
     <string name="language">Язык</string>
     <string name="theme">Тема</string>
@@ -46,6 +51,27 @@
     <string name="exit_alert_message">Вы уверены, что хотите закрыть приложение?</string>
     <string name="no">Нет</string>
     <string name="yes_close">Да, закрыть</string>
+    <string name="apply">Применить</string>
+    <string name="cancel">Отменить</string>
+    <string name="close">Закрыть</string>
+    <string name="name">Название</string>
+    <string name="description">Описание</string>
+    <string name="enter_name">Введите название</string>
+    <string name="recycling_days_off">Переработка/Отгул</string>
+    <string name="specify_manually">Указать вручную</string>
+    <string name="specify_norm">Указать норму</string>
+    <string name="skip">Пропустить</string>
+    <string name="test_date">March 2021</string>
+    <string name="commands">Команды</string>
+    <string name="days">Дни</string>
+    <string name="hours">Часы</string>
+    <string name="minutes">Минуты</string>
+    <string name="seconds">Секунды</string>
+    <string name="recycling_text">Переработка</string>
+    <string name="date_not_selected">Дата не выбрана</string>
+    <string name="time_not_selected">Время не выбрано</string>
+    <string name="value_must_be_integer">Данные должны представлять целое число</string>
+    <string name="value_must_be_more_than_zero">Значение должно быть больше нуля</string>
     
     <string-array name="grouping_types">
         <item>по дням</item>

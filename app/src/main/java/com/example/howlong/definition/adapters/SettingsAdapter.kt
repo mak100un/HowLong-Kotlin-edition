@@ -46,7 +46,7 @@ class SettingsAdapter
                 SettingItemType.Language -> R.layout.settings_recycler_two_buttons_item
                 SettingItemType.Theme -> R.layout.settings_recycler_one_button_item
                 SettingItemType.Notifications -> R.layout.settings_recycler_switch_item
-                SettingItemType.CleanHistory, SettingItemType.Version, SettingItemType.Support, SettingItemType.Improvement, SettingItemType.Developer -> R.layout.settings_recycler_info_item
+                else -> R.layout.settings_recycler_info_item
             }
             RecyclerElementType.GroupFooter -> groupFooterLayoutRes
             RecyclerElementType.GroupHeader -> groupHeaderLayoutRes
@@ -151,6 +151,6 @@ class SettingsAdapter
     private fun setClickAction(view: View, action: () -> Unit) {
         RxView.clicks(view)
             .throttleFirst(250, TimeUnit.MILLISECONDS)
-            .subscribe { action }
+            .subscribe { action() }
     }
 }

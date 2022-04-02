@@ -19,7 +19,7 @@
     <dimen name="logo_padding">3dp</dimen>
     <dimen name="logo_button_size">50dp</dimen>
     <dimen name="button_corner_radius">12dp</dimen>
-    <dimen name="logo_button_corner_radius">25dp</dimen>
+    <dimen name="logo_button_corner_radius">28dp</dimen>
     <dimen name="action_button_corner_radius">18dp</dimen>
     <dimen name="button_content_padding">10dp</dimen>
     <dimen name="bottom_sheet_header_height">80dp</dimen>

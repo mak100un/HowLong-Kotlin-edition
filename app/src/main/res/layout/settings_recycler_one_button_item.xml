@@ -11,7 +11,7 @@
             android:layout_marginVertical="@dimen/vertical_margin"
             android:orientation="horizontal">
     
-        <com.example.howlong.widgets.LightFontTextView
+        <com.example.howlong.widgets.textviews.LightFontTextView
                 android:id="@+id/setting_title"
                 android:layout_gravity="center_vertical"
                 style="@style/DescriptionTextViewStyle"

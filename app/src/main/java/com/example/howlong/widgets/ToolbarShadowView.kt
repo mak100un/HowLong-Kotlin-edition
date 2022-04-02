@@ -1,15 +1,21 @@
 package com.example.howlong.widgets
 
 import android.content.Context
-import android.graphics.Typeface
 import android.util.AttributeSet
+import android.view.MotionEvent
+import android.view.View
+import com.example.howlong.R
 
-class BoldFontButton: androidx.appcompat.widget.AppCompatButton {
+class ToolbarShadowView: View {
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
-    init
-    {
-        typeface = Typeface.createFromAsset(context.assets, "Roboto-Bold.ttf")
+
+    init {
+        setBackgroundResource(R.drawable.toolbar_shadow)
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        return false
     }
 }

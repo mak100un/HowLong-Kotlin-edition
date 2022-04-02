@@ -5,7 +5,7 @@
         android:paddingHorizontal="@dimen/horizontal_padding"
         style="@style/HeightWrapContentTheme">
     
-    <com.example.howlong.widgets.LightFontTextView
+    <com.example.howlong.widgets.textviews.LightFontTextView
             android:id="@+id/records_placeholder"
             style="@style/PrimaryBlueTextViewStyle"
             android:layout_width="@dimen/zero"
@@ -15,7 +15,7 @@
             android:gravity="center_vertical"
             android:layout_marginRight="@dimen/vertical_spacing"/>
     
-    <com.example.howlong.widgets.RegularFontTextView
+    <com.example.howlong.widgets.textviews.RegularFontTextView
             android:layout_width="@dimen/zero"
             android:layout_weight="1"
             android:id="@+id/records_count"

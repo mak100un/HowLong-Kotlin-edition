@@ -12,14 +12,14 @@
             android:gravity="end"
             android:paddingHorizontal="@dimen/horizontal_padding">
         
-        <com.example.howlong.widgets.LightFontTextView
+        <com.example.howlong.widgets.textviews.LightFontTextView
                 android:id="@+id/common_result_placeholder"
                 style="@style/PrimaryBlueTextViewStyle"
                 android:layout_gravity="center_vertical"
                 android:layout_marginRight="@dimen/vertical_spacing"
-                tools:text="@string/flaw" />
+                tools:text="@string/day_off" />
         
-        <com.example.howlong.widgets.RegularFontTextView
+        <com.example.howlong.widgets.textviews.RegularFontTextView
                 android:id="@+id/common_result"
                 style="@style/PrimaryBlueTextViewStyle"
                 android:layout_gravity="center_vertical"
@@ -35,7 +35,7 @@
             android:layout_height="@dimen/bottom_sheet_row_height"
             android:layout_marginTop="@dimen/vertical_spacing">
     
-        <com.example.howlong.widgets.RegularFontTextView
+        <com.example.howlong.widgets.textviews.RegularFontTextView
                 style="@style/DescriptionTextViewStyle"
                 android:layout_width="wrap_content"
                 android:text="@string/grouping"
@@ -79,7 +79,7 @@
     
     <View style="@style/HorizontalDividerStyle"/>
     
-    <com.example.howlong.widgets.RegularFontTextView
+    <com.example.howlong.widgets.textviews.RegularFontTextView
             style="@style/DescriptionTextViewStyle"
             android:layout_height="@dimen/bottom_sheet_row_height"
             android:gravity="center_vertical"

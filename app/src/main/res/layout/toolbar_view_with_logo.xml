@@ -2,15 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         style="@style/HeightWrapContentTheme"
         android:layout_height="?android:attr/actionBarSize"
-        android:gravity="center">
+        android:orientation="vertical">
     
     <ImageButton
-            android:layout_height="@dimen/logo_button_size"
-            android:layout_width="@dimen/logo_button_size"
+            android:layout_height="?android:attr/actionBarSize"
+            android:layout_width="?android:attr/actionBarSize"
             android:id="@+id/logo_button"
             android:src="@drawable/img_splash"
             android:scaleType="fitCenter"
+            android:layout_gravity="center_horizontal|center_vertical"
             android:background="@drawable/logo_button_background"
-            android:layout_margin="@dimen/vertical_spacing"/>
+            android:padding="@dimen/logo_padding"/>
     
 </LinearLayout>

@@ -23,10 +23,9 @@
             tools:itemCount="200"
             />
     
-    <View
+    <com.example.howlong.widgets.ToolbarShadowView
             android:layout_width="match_parent"
             android:layout_height="@dimen/primary_elevation"
-            android:background="@drawable/toolbar_shadow"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar" />

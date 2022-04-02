@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.howlong.widgets.RegularFontTextView
+<com.example.howlong.widgets.textviews.RegularFontTextView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/settings_group_header_text"

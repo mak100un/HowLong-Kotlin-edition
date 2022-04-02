@@ -23,7 +23,6 @@ abstract class BaseFragment : Fragment() {
     ): View? {
         return inflater.inflate(fragmentRes, container, false)
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initArguments()
@@ -92,6 +91,11 @@ abstract class BaseFragment : Fragment() {
     open fun initFragmentWithArguments()
     {
 
+    }
+
+    protected fun goBack()
+    {
+        view?.findNavController()?.navigateUp()
     }
 
     abstract fun initFragment(view: View)

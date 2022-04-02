@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/MatchParentTheme"
+        tools:context=".fragments.groups.GroupFragment">
+    
+    <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    
+    <ScrollView
+            style="@style/ZeroHeightTheme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar">
+    
+    
+        <LinearLayout
+                style="@style/MatchParentTheme"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/horizontal_padding">
+        
+            <com.example.howlong.widgets.textviews.LightFontTextView
+                    android:id="@+id/record_alias_text_view"
+                    android:layout_marginTop="@dimen/vertical_margin"
+                    style="@style/GroupHeaderTextViewStyle"
+                    android:text="@string/test_date" />
+        
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginTop="@dimen/vertical_spacing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            
+                <com.example.howlong.widgets.edittexts.FocusableEditText
+                        android:id="@+id/name_edit_text"
+                        android:inputType="textCapSentences|textAutoCorrect"
+                        style="@style/HeightWrapContentTheme"
+                        android:hint="@string/name"/>
+        
+            </com.google.android.material.textfield.TextInputLayout>
+        
+            <com.google.android.material.textfield.TextInputLayout
+                    android:layout_marginTop="@dimen/vertical_spacing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            
+                <com.example.howlong.widgets.edittexts.FocusableEditText
+                        android:id="@+id/description_edit_text"
+                        android:inputType="textCapSentences|textAutoCorrect|textMultiLine"
+                        style="@style/HeightWrapContentTheme"
+                        android:hint="@string/description"
+                        android:minLines="4"/>
+        
+            </com.google.android.material.textfield.TextInputLayout>
+        
+            <LinearLayout
+                    style="@style/HeightWrapContentTheme"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/vertical_margin">
+            
+                <com.example.howlong.widgets.textviews.RegularFontTextView
+                        style="@style/DescriptionTextViewStyle"
+                        android:layout_width="@dimen/zero"
+                        android:layout_weight="1"
+                        android:text="@string/records"
+                        android:layout_gravity="center_vertical"
+                        />
+    
+                <com.example.howlong.widgets.textviews.LightFontTextView
+                        android:id="@+id/common_result_placeholder"
+                        style="@style/PrimaryBlueTextViewStyle"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/vertical_spacing"
+                        android:text="@string/day_off" />
+            
+                <com.example.howlong.widgets.textviews.RegularFontTextView
+                        android:id="@+id/common_result"
+                        style="@style/PrimaryBlueTextViewStyle"
+                        android:layout_gravity="center_vertical"
+                        android:text="05:00" />
+        
+            </LinearLayout>
+        
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/records_recycler"
+                    android:scrollbars="vertical"
+                    android:layout_marginTop="@dimen/vertical_spacing"
+                    style="@style/HeightWrapContentTheme"
+                    android:orientation="vertical"
+                    tools:itemCount="10" />
+        
+            <com.example.howlong.widgets.textviews.RegularFontTextView
+                    android:layout_marginTop="@dimen/vertical_margin"
+                    style="@style/DescriptionTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:text="@string/recycling_days_off"/>
+        
+            <com.example.howlong.widgets.RecyclingDayOffRadioGroup
+                    android:layout_marginTop="@dimen/vertical_spacing"
+                    style="@style/HeightWrapContentTheme"
+                    android:orientation="vertical"/>
+        
+            <com.example.howlong.widgets.buttons.RegularFontButton
+                    android:id="@+id/save_record_button"
+                    style="@style/ButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="@dimen/horizontal_padding"
+                    android:layout_marginBottom="@dimen/bottom_content_padding"
+                    android:text="@string/save" />s
+    
+        </LinearLayout>
+        
+    </ScrollView>
+    
+    <com.example.howlong.widgets.ToolbarShadowView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/primary_elevation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

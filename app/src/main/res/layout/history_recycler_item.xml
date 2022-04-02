@@ -6,7 +6,7 @@
         android:background="@drawable/ripple_white_background"
         android:clickable="true">
     
-    <com.example.howlong.widgets.LightFontTextView
+    <com.example.howlong.widgets.textviews.LightFontTextView
             android:id="@+id/record_name"
             android:paddingHorizontal="@dimen/horizontal_padding"
             android:layout_marginTop="@dimen/vertical_margin"
@@ -19,12 +19,12 @@
             android:paddingHorizontal="@dimen/horizontal_padding"
             android:orientation="horizontal">
         
-        <com.example.howlong.widgets.LightFontTextView
+        <com.example.howlong.widgets.textviews.LightFontTextView
                 style="@style/PrimaryBlueTextViewStyle"
                 android:layout_marginRight="@dimen/vertical_spacing"
                 android:text="@string/record_period" />
         
-        <com.example.howlong.widgets.RegularFontTextView
+        <com.example.howlong.widgets.textviews.RegularFontTextView
                 android:id="@+id/record_period"
                 style="@style/PrimaryBlueTextViewStyle"
                 tools:text="20:00 - 21:00"/>
@@ -38,13 +38,13 @@
             android:layout_marginTop="@dimen/vertical_spacing"
             android:orientation="horizontal">
         
-        <com.example.howlong.widgets.LightFontTextView
+        <com.example.howlong.widgets.textviews.LightFontTextView
                 android:id="@+id/record_result_placeholder"
                 style="@style/PrimaryBlueTextViewStyle"
                 android:layout_marginRight="@dimen/vertical_spacing"
                 tools:text="Недоработка:"/>
         
-        <com.example.howlong.widgets.RegularFontTextView
+        <com.example.howlong.widgets.textviews.RegularFontTextView
                 android:id="@+id/record_result"
                 style="@style/PrimaryBlueTextViewStyle"
                 tools:text="05:00"/>

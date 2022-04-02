@@ -2,13 +2,18 @@ package com.example.howlong.fragments.record
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
+import android.content.Context
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.LinearInterpolator
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.howlong.R
@@ -16,8 +21,9 @@ import com.example.howlong.definition.dtos.TimeRecord
 import com.example.howlong.definition.listeners.OnDateTimeChangedListener
 import com.example.howlong.fragments.base.BaseFragmentWithLogo
 import com.example.howlong.utils.TimeFormatterUtils
-import com.example.howlong.viewmodels.record.RecordViewModel
+import com.example.howlong.viewmodels.records.RecordViewModel
 import com.example.howlong.widgets.CircularProgressBar
+import com.example.howlong.widgets.DialogScrollView
 import com.example.howlong.widgets.pickers.DateTimePicker
 import kotlinx.coroutines.*
 import java.util.*
@@ -67,6 +73,44 @@ class RecordFragment : BaseFragmentWithLogo() {
     private var timerTickJob: Job? = null
 
     override val fragmentRes: Int = R.layout.record_fragment
+
+    override fun initToolbar(toolbar: Toolbar) {
+        super.initToolbar(toolbar)
+        toolbar.inflateMenu(R.menu.edit_item_menu)
+        toolbar.setOnMenuItemClickListener {
+            onOptionsItemSelected(it)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.edit_action -> {
+                context?.let {
+                    val dialog = AlertDialog.Builder(it)
+                        .setTitle(R.string.test_date)
+                        .setPositiveButton(R.string.save){ dialog, _ ->
+                            dialog.dismiss()
+                            goBack()
+                        }
+                        .setNegativeButton(R.string.cancel, null)
+                        .setNeutralButton(R.string.apply, null)
+                        .create()
+
+                    val scrollView = dialog.layoutInflater.inflate(R.layout.record_edit_layout, null) as DialogScrollView
+                    scrollView.dialog = dialog
+
+                    dialog.setView(scrollView)
+                    dialog.show()
+                }
+                true
+            }
+            R.id.delete_action -> {
+                goBack()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
     override fun initArguments() {
         super.initArguments()

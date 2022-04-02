@@ -2,11 +2,15 @@ package com.example.howlong.fragments.settings
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.howlong.R
+import com.example.howlong.definition.adapters.CommandAdapter
+import com.example.howlong.definition.adapters.HistoryAdapter
 import com.example.howlong.definition.adapters.SettingsAdapter
+import com.example.howlong.definition.dtos.CommandDto
 import com.example.howlong.definition.enums.SettingItemType
 import com.example.howlong.definition.enums.SettingsGroupingType
 import com.example.howlong.definition.items.base.recycler.BaseRecyclerElement
@@ -21,10 +25,13 @@ class SettingsFragment : BaseFragmentWithLogo() {
     }
 
     private lateinit var viewModel: SettingsViewModel
+    private var commands: ArrayList<CommandDto> = ArrayList()
 
     override val fragmentRes: Int = R.layout.settings_fragment
 
     override fun initFragment(view: View) {
+        (1..30).forEach{i -> commands.add(CommandDto("“Команда $i”", " - подробное описание команды $i"))}
+
         initSettingsRecycler(view)
     }
 
@@ -72,9 +79,24 @@ class SettingsFragment : BaseFragmentWithLogo() {
                     )
                 )
                 // SettingsGroupingType.About
-                SettingItemType.Version -> {
+                SettingItemType.Version ->
+                {
                     settingItems.add(SettingsGroupItem(SettingsGroupingType.About))
-                    settingItems.add(InfoSettingItem(settingType))
+                    settingItems.add(InfoSettingItem(settingType, {
+                        context?.let {
+                            val dialog = AlertDialog.Builder(it)
+                                .setTitle(R.string.commands)
+                                .setNegativeButton(R.string.close, null)
+                                .create()
+
+                            val recyclerView = dialog.layoutInflater.inflate(R.layout.voice_commands_layout, null) as RecyclerView
+                            recyclerView.layoutManager = LinearLayoutManager(context)
+                            recyclerView.adapter = CommandAdapter(it, commands)
+
+                            dialog.setView(recyclerView)
+                            dialog.show()
+                        }
+                    }))
                 }
                 SettingItemType.Support -> settingItems.add(InfoSettingItem(settingType, {}))
                 SettingItemType.Improvement -> settingItems.add(InfoSettingItem(settingType, {}))

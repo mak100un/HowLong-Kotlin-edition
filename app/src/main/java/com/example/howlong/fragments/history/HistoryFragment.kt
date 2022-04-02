@@ -93,7 +93,7 @@ class HistoryFragment : BaseFragmentWithLogo() {
         commonResultView.setTextColor(ContextCompat.getColor(context!!, R.color.colorRed))
 
         val resultPlaceholderView: TextView = view.findViewById(R.id.common_result_placeholder)
-        resultPlaceholderView?.setText(R.string.flaw)
+        resultPlaceholderView?.setText(R.string.day_off)
 
         val dimView : View = view.findViewById(R.id.dim_view)
         val bottomSheetBehavior = BottomSheetBehavior.from<View>(view.findViewById(R.id.bottom_sheet))
@@ -139,10 +139,12 @@ class HistoryFragment : BaseFragmentWithLogo() {
 
         addRecordsPage(true)
 
-        val adapter = HistoryAdapter(context!!, records) { view: View, record: TimeRecord ->
+        val adapter = HistoryAdapter(context!!, records, { view: View, record: TimeRecord ->
             val action = HistoryFragmentDirections.actionHistoryFragmentToRecordFragment()
             action.record = record
-            view.findNavController().navigate(action) }
+            view.findNavController().navigate(action) }, { view: View, _: HistoryGroupItem ->
+
+            view.findNavController().navigate(R.id.action_historyFragment_to_groupFragment) })
         recyclerView.adapter = adapter
 
 
@@ -220,7 +222,7 @@ class HistoryFragment : BaseFragmentWithLogo() {
         {
             for(month in (lastRecordDate.get(Calendar.MONTH))..11)
             {
-                for(day in (lastRecordDate.get(Calendar.DATE))..GregorianCalendar(year, month, 1).getActualMaximum(Calendar.DAY_OF_MONTH))
+                for(day in (lastRecordDate.get(Calendar.DAY_OF_MONTH))..GregorianCalendar(year, month, 1).getActualMaximum(Calendar.DAY_OF_MONTH))
                 {
                     addedDay++
                     lastRecordDate.add(Calendar.DAY_OF_YEAR, 1)
