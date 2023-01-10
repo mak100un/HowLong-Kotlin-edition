@@ -333,4 +333,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+/*/release/
+/*/*/release
+/*/debug/
+/*/*/debug
+
 # End of https://www.gitignore.io/api/java,linux,macos,windows,android,intellij,androidstudio
