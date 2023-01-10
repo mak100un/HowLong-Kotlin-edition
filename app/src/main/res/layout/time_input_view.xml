@@ -19,6 +19,7 @@
             <com.example.howlong.widgets.edittexts.FocusableEditText
                     android:id="@+id/days_edit_text"
                     android:inputType="number"
+                    android:nextFocusDown="@id/hours_edit_text"
                     style="@style/HeightWrapContentTheme"
                     android:hint="@string/days"/>
     
@@ -37,6 +38,7 @@
             <com.example.howlong.widgets.edittexts.FocusableEditText
                     android:id="@+id/hours_edit_text"
                     android:inputType="number"
+                    android:nextFocusDown="@id/minutes_edit_text"
                     style="@style/HeightWrapContentTheme"
                     android:hint="@string/hours"/>
     
@@ -60,6 +62,7 @@
             <com.example.howlong.widgets.edittexts.FocusableEditText
                     android:id="@+id/minutes_edit_text"
                     android:inputType="number"
+                    android:nextFocusDown="@id/seconds_edit_text"
                     style="@style/HeightWrapContentTheme"
                     android:hint="@string/minutes"/>
         
@@ -78,6 +81,7 @@
             <com.example.howlong.widgets.edittexts.FocusableEditText
                     android:id="@+id/seconds_edit_text"
                     android:inputType="number"
+                    android:imeOptions="actionDone"
                     style="@style/HeightWrapContentTheme"
                     android:hint="@string/seconds"/>
         

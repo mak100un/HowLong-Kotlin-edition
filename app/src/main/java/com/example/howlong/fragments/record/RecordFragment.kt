@@ -3,7 +3,10 @@ package com.example.howlong.fragments.record
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.LayoutDirection
 import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
@@ -94,11 +97,13 @@ class RecordFragment : BaseFragmentWithLogo() {
                         }
                         .setNegativeButton(R.string.cancel, null)
                         .setNeutralButton(R.string.apply, null)
+                        .setCancelable(true)
                         .create()
 
                     val scrollView = dialog.layoutInflater.inflate(R.layout.record_edit_layout, null) as DialogScrollView
                     scrollView.dialog = dialog
 
+                    dialog.setCanceledOnTouchOutside(true)
                     dialog.setView(scrollView)
                     dialog.show()
                 }

@@ -43,6 +43,12 @@ class CommandAdapter
         spannableString.setSpan(RegularFontSpan(context, holder.commandTextView, 18F, ContextCompat.getColor(context, R.color.colorPrimary)), 0, element.name.length, SPAN_INCLUSIVE_EXCLUSIVE)
         //spannableString.setSpan(StyleSpan(Typeface.ITALIC), 0, element.name.length, SPAN_INCLUSIVE_EXCLUSIVE)
         holder.commandTextView.text = spannableString
+        holder.commandTextView.fixTextSelection()
+    }
+
+    fun TextView.fixTextSelection() {
+        setTextIsSelectable(false)
+        post { setTextIsSelectable(true) }
     }
 
     override fun onCreateElementViewHolder(view: View, layoutRes: Int): CommandViewHolder

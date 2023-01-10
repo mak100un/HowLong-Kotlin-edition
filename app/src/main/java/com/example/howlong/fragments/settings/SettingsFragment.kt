@@ -3,6 +3,7 @@ package com.example.howlong.fragments.settings
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -91,8 +92,10 @@ class SettingsFragment : BaseFragmentWithLogo() {
 
                             val recyclerView = dialog.layoutInflater.inflate(R.layout.voice_commands_layout, null) as RecyclerView
                             recyclerView.layoutManager = LinearLayoutManager(context)
-                            recyclerView.adapter = CommandAdapter(it, commands)
+                            recyclerView.adapter = CommandAdapter(context!!, commands)
 
+                            dialog.setCancelable(true)
+                            dialog.setCanceledOnTouchOutside(true)
                             dialog.setView(recyclerView)
                             dialog.show()
                         }

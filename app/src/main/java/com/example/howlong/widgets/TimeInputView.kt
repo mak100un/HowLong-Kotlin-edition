@@ -23,9 +23,9 @@ class TimeInputView: LinearLayout {
     init {
         inflate(context, R.layout.time_input_view, this)
         components.add(TimeInputComponent(findViewById(R.id.days_edit_text), findViewById(R.id.days_input_layout)) { days -> TimeUnit.DAYS.toMillis(days)})
-        components.add(TimeInputComponent(findViewById(R.id.hours_edit_text), findViewById(R.id.hours_input_layout)) { days -> TimeUnit.HOURS.toMillis(days)})
-        components.add(TimeInputComponent(findViewById(R.id.minutes_edit_text), findViewById(R.id.minutes_input_layout)) { days -> TimeUnit.MINUTES.toMillis(days)})
-        components.add(TimeInputComponent(findViewById(R.id.seconds_edit_text), findViewById(R.id.seconds_input_layout)) { days -> TimeUnit.SECONDS.toMillis(days)})
+        components.add(TimeInputComponent(findViewById(R.id.hours_edit_text), findViewById(R.id.hours_input_layout)) { hours -> TimeUnit.HOURS.toMillis(hours)})
+        components.add(TimeInputComponent(findViewById(R.id.minutes_edit_text), findViewById(R.id.minutes_input_layout)) { minutes -> TimeUnit.MINUTES.toMillis(minutes)})
+        components.add(TimeInputComponent(findViewById(R.id.seconds_edit_text), findViewById(R.id.seconds_input_layout)) { seconds -> TimeUnit.SECONDS.toMillis(seconds)})
     }
 
     val timeInMillis: Long?

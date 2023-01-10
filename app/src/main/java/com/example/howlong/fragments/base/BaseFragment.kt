@@ -16,15 +16,30 @@ import com.example.howlong.R
 
 
 abstract class BaseFragment : Fragment() {
+
+    private var _view: View? = null
+    private val inInitialized : Boolean get() = _view != null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        if (inInitialized)
+        {
+            return _view
+        }
+
         return inflater.inflate(fragmentRes, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (inInitialized)
+        {
+            return
+        }
+        _view = view
         initArguments()
         initToolbar(view)
         initFragment(view)
